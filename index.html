@@ -1,0 +1,3159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Luxury Private Aircraft Hangars at KLCI | The Landing</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Explore The Landing at KLCI, a limited collection of luxury private aircraft hangars with direct runway access at Laconia Municipal Airport in New Hampshire.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" href="assets/images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Landing at KLCI">
+<meta property="og:title" content="Luxury Private Aircraft Hangars at KLCI | The Landing">
+<meta property="og:description" content="A limited collection of luxury private aircraft hangars at Laconia Municipal Airport in New Hampshire.">
+<meta property="og:url" content="https://luxuryhangars.com/">
+<meta property="og:image" content="https://luxuryhangars.com/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Private aircraft hangar at golden hour with a jet parked inside, at The Landing at KLCI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Luxury Private Aircraft Hangars at KLCI | The Landing">
+<meta name="twitter:description" content="A limited collection of luxury private aircraft hangars at Laconia Municipal Airport in New Hampshire.">
+<meta name="twitter:image" content="https://luxuryhangars.com/assets/images/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"The Landing at KLCI",
+  "url":"https://luxuryhangars.com/",
+  "description":"Luxury private aircraft hangars with direct runway access at Laconia Municipal Airport.",
+  "address":{"@type":"PostalAddress","addressLocality":"Laconia","addressRegion":"NH","addressCountry":"US"},
+  "contactPoint":{"@type":"ContactPoint","email":"chrisbeane@luxuryhangars.com","contactType":"sales"}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS ============ */
+  /* Single source of truth for every color, font and hairline on the site.
+     Nothing below this block should hardcode a color literal that already
+     has a name here -- if a new one is ever needed, add it here first. */
+  :root{
+    /* --- Backgrounds: one dark tone now, was two ---
+       --ink and --stage used to be two intentionally-different dark tones
+       (--ink for panels, --stage for the outer deck) that "read as the same
+       charcoal-olive at a glance." That assumption held only as long as
+       scroll-snap locked the view to exactly one slide at a time -- once
+       snap was removed and the desktop deck became continuously
+       scrollable, adjacent sections' panels sit on screen together, and
+       every --stage/--ink boundary (Lakes into Masterplan among others)
+       reads as a visible seam of two different dark shades, reported
+       directly ("make sure all background colors are the same"). Unified
+       per the escape hatch this comment always offered: --stage now just
+       points at --ink, so every rule anywhere in the file that references
+       either variable resolves to the exact same color. Mobile already
+       used --ink consistently everywhere (see the LIVE MOBILE LAYOUTS
+       block) -- this brings desktop in line with that, rather than the
+       other way around. --stage is kept as a variable (not deleted) so
+       nothing that references it breaks; if a reason to split them apart
+       again ever comes up, change the value below back to a real color. */
+    --ink:#1b1712;
+    --ink-rgb:27,23,18; /* --ink as r,g,b for rgba() scrims/gradients */
+    --stage:var(--ink);
+
+    /* --- Light panels: two distinct warm neutrals, both intentional ---
+       --panel-light is the flat cream fill behind every light-slide section
+       (Materials/Masterplan/Floorplans/Contact desktop). --parchment is a
+       separate, slightly deeper paper tone sampled from the blueprint/
+       materials photography itself, used only where a background needs to
+       match a specific photo's edge color (the floorplans mobile seam) --
+       it is not meant to be swapped for --panel-light. */
+    --panel-light:#eee7d8;
+    --parchment:#e7dcc0;
+
+    /* --- Accent gold: one hue, three roles, never interchangeable ---
+       --gold-light is bright and reserved for accent text (eyebrows, final
+       lines) ONLY on dark panels. --gold-dim is the same role at reduced
+       brightness for the same accent text on light/cream panels -- bright
+       gold never sits on a light background anywhere on this site. Plain
+       --gold is reserved for non-text accents: icon strokes, hover states,
+       button fills, focus rings. */
+    --gold:#b3924e;
+    --gold-light:#dcc186;
+    --gold-dim:#8a713d;
+
+    /* --- Text ---
+       on-dark(-soft/-faint) for text on --ink or --stage; on-light(-soft/
+       -faint) for text on --panel-light or --parchment. Never cross the two
+       families across a background swap. */
+    --on-dark:#efe6d4;
+    --on-dark-soft:#b6a992;
+    --on-dark-faint:#8a7d67;
+    --on-light:#241f17;
+    --on-light-soft:#5c5341;
+    --on-light-faint:#8c8168;
+
+    /* --- Hairlines: always 1px, color picked by what's on either side --- */
+    --line-on-dark:rgba(239,230,212,0.16);
+    --line-on-light:rgba(36,31,23,0.14);
+    --line-gold:rgba(179,146,78,0.45);
+
+    /* --- Type scale ---
+       Named sizes for roles that repeat identically across multiple pages.
+       This covers the true exact duplicates found in an audit of every
+       font-size in the sheet; it intentionally does NOT force every
+       similar-but-not-identical size (e.g. the five overlay eyebrows, each
+       a few tenths of a rem apart) into one value -- those differences
+       were sized individually per approved page and collapsing them would
+       be a visual change, not a cleanup. Headline/statement sizes stay as
+       component-specific clamp()s for the same reason: each one was tuned
+       to its own photo and panel width. */
+    --text-nav:0.7rem;              /* nav links, footer links/follow label */
+    /* Reverted -- across several rounds this token (and its per-section
+       eyebrow companions below) got pushed from clamp(0.92rem,1.1vw,1.05rem)
+       up to clamp(1.4rem,1.6vw,2rem) in three escalating steps, each one
+       individually reasonable-sounding ("read small next to this photo",
+       "keeps capping out too early on wide monitors") but the cumulative
+       effect, seen fresh on an actual screen rather than judged step by
+       step, was overlay copy that reads oversized on every page that
+       shares this token (Ownership, Lakes, Opportunity, Contact, the
+       Milestones caption). Back to the original value. */
+    --text-body:clamp(0.92rem,1.1vw,1.05rem);    /* desktop overlay body/detail text */
+    --text-body-sm:clamp(0.86rem,1vw,0.98rem);   /* desktop overlay body, smaller variant */
+    --text-body-mobile:1.05rem;     /* mobile paragraph copy */
+    --text-title-mobile:1.5rem;     /* mobile name/title (Cormorant, mid-size) */
+
+    /* --- Spacing ---
+       --mobile-gutter is the one spacing value truly used everywhere: the
+       left/right padding on every mobile section panel, identical on all
+       nine slides already -- naming it here just documents that existing
+       consistency in one place. Vertical spacing (padding-top, margins
+       between headline and body, etc.) intentionally still varies per
+       section since each was tuned to its own content and photo, the same
+       reasoning as the type scale above; a full numeric scale for those
+       would mean nudging already-approved layouts, so it's left for a
+       deliberate follow-up rather than done silently here. */
+    --mobile-gutter:28px;
+
+    /* Split-panel overlay content columns (Opportunity/Lakes/Contact) are
+       each width:47% with their own max-width safety cap, tuned per page
+       to that page's line lengths -- named individually rather than
+       forced to one number, which would reflow their text on wide
+       screens. Point all three at one value if a single fixed cap is
+       ever wanted instead. */
+    --overlay-max-opportunity:740px;
+    --overlay-max-lakes:720px;
+    --overlay-max-contact:700px;
+
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  /* overflow-x:hidden on both html and body -- body alone doesn't reliably
+     clip horizontal overflow on every mobile browser when something (a
+     grid, a fixed-position element) ends up a few pixels wider than the
+     viewport; setting it on the root too is the standard belt-and-braces
+     fix for "white space/scroll to the right" on mobile. */
+  /* No scroll-behavior:smooth here. Originally removed because it fought
+     scroll-snap-type:mandatory (that snap has since been removed entirely,
+     see the DECK MECHANICS block below); left off regardless so the two
+     scroll paths stay consistent -- anchor links (nav, dots, footer, hero
+     CTAs) get their own smooth animation via JS (see the anchor-click
+     handler at the bottom of the page), while native wheel/trackpad
+     scrolling is left to the browser's own instant-per-event handling. */
+  /* overscroll-behavior-x:none on both -- this is a strictly vertical,
+     single-column deck with no horizontal scroll of its own, but Safari's
+     trackpad "swipe from the edge to go back/forward" gesture will still
+     visually pan the whole page sideways (a compositor-level preview of
+     that navigation, independent of overflow-x) if a scroll gesture drifts
+     even slightly diagonal -- reported as the page's content appearing
+     shifted left, clipped at the edge, mid-scroll on Safari/Mac. This is
+     the standard opt-out for that gesture; it has no effect on Chrome or
+     on the page's own (already vertical-only) scrolling. */
+  html{overflow-x:hidden;overscroll-behavior-x:none;}
+  body{
+    margin:0;
+    background:var(--stage);
+    color:var(--on-dark);
+    font-family:'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;
+    overscroll-behavior-x:none;
+    width:100%;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,p,figure{margin:0;}
+  .u{font-family:'Jost', 'Helvetica Neue', Arial, sans-serif;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ============ SHARED TYPE ============ */
+  .display{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+    line-height:1.05;
+    text-wrap:balance;
+  }
+  .rule{
+    width:64px;height:1px;background:var(--line-gold);
+    margin:28px 0;
+  }
+  .rule.center{margin-left:auto;margin-right:auto;}
+  .btn{
+    font-family:'Jost',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    padding:17px 34px;
+    border:1px solid var(--line-gold);
+    color:var(--on-dark);
+    background:transparent;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:background .45s var(--ease), color .45s var(--ease), border-color .45s var(--ease);
+    white-space:nowrap;
+  }
+  .btn:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+  .btn.filled{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+  .btn.filled:hover{background:var(--gold-light);border-color:var(--gold-light);}
+  .btn.on-light{color:var(--on-light);border-color:var(--line-on-light);}
+  .btn.on-light:hover{background:var(--ink);border-color:var(--ink);color:var(--on-dark);}
+
+  /* ============ REVEAL ============ */
+  [data-reveal]{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 1.1s var(--ease), transform 1.1s var(--ease);
+  }
+  [data-reveal="fade"]{transform:none;}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:26px clamp(20px,4vw,56px);
+    transition:background .5s var(--ease), padding .5s var(--ease), border-color .5s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{
+    background:rgba(var(--ink-rgb),0.92);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    padding:16px clamp(20px,4vw,56px);
+    border-bottom:1px solid var(--line-on-dark);
+  }
+  .nav__mark{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.15rem;
+    letter-spacing:0.16em;
+    color:var(--on-dark);
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .nav__mark span{color:var(--on-dark-soft);font-size:0.62rem;font-family:'Jost',sans-serif;letter-spacing:0.24em;}
+  .nav__links{
+    display:flex;gap:clamp(18px,2.4vw,40px);
+    list-style:none;margin:0;padding:0;
+  }
+  .nav__links a{
+    font-family:'Jost',sans-serif;
+    font-size:var(--text-nav);
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--on-dark-soft);
+    padding-bottom:4px;
+    border-bottom:1px solid transparent;
+    transition:color .35s var(--ease), border-color .35s var(--ease);
+  }
+  .nav__links a:hover{color:var(--on-dark);border-color:var(--line-gold);}
+  .nav__right{display:flex;align-items:center;gap:28px;}
+  .nav__cta{display:inline-flex;}
+  .nav__burger{
+    display:none;
+    width:26px;height:18px;position:relative;background:none;border:0;cursor:pointer;padding:0;z-index:210;
+  }
+  .nav__burger span{
+    position:absolute;left:0;right:0;height:1px;background:var(--on-dark);
+    transition:transform .4s var(--ease), opacity .3s var(--ease), top .4s var(--ease);
+  }
+  .nav__burger span:nth-child(1){top:0;}
+  .nav__burger span:nth-child(2){top:8px;}
+  .nav__burger span:nth-child(3){top:16px;}
+  .nav__burger.open span:nth-child(1){top:8px;transform:rotate(45deg);}
+  .nav__burger.open span:nth-child(2){opacity:0;}
+  .nav__burger.open span:nth-child(3){top:8px;transform:rotate(-45deg);}
+
+  .mobile-menu{
+    position:fixed;inset:0;background:var(--ink);z-index:190;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;
+    opacity:0;pointer-events:none;transition:opacity .5s var(--ease);
+    overflow-y:auto;padding:100px 20px 40px;
+  }
+  .mobile-menu.open{opacity:1;pointer-events:auto;}
+  .mobile-menu a{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;letter-spacing:0.04em;color:var(--on-dark);
+  }
+  .mobile-menu .btn{
+    margin-top:14px;white-space:normal;text-align:center;
+    max-width:calc(100vw - 80px);
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    height:100svh;min-height:560px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    background:var(--ink);
+  }
+  .hero__bg{
+    display:block;
+    position:absolute;inset:-2%;width:104%;height:104%;
+    object-fit:cover;object-position:50% 45%;
+    will-change:transform;
+    filter:saturate(1.04) contrast(1.0) brightness(1.08);
+  }
+  .hero__scrim{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(64% 56% at 50% 48%, rgba(10,9,6,0.26) 0%, rgba(10,9,6,0.13) 48%, rgba(10,9,6,0.05) 74%, rgba(10,9,6,0.01) 100%),
+      linear-gradient(180deg, rgba(8,7,5,0.22) 0%, rgba(8,7,5,0.03) 22%, rgba(8,7,5,0.06) 56%, rgba(6,5,4,0.4) 100%);
+  }
+  .hero__content{position:relative;z-index:2;padding:0 24px;display:flex;flex-direction:column;align-items:center;}
+  /* Optical-centering lift, same idea as the Opportunity/Floorplans/
+     Ownership/Contact overlays -- true vertical centering (this block sits
+     in .hero's justify-content:center) reads as sitting low, with a lot of
+     empty space below the buttons before the scroll hint. Desktop only
+     (min-width:701px matches the deck's own mobile cutover at max-width:700px
+     in the RESPONSIVE GLOBAL block) -- the hero has no separate mobile
+     markup, .hero__content is shared by both, so this must not leak onto
+     phones. Reduced on short desktop heights so the lift never pushes the
+     title up under the transparent nav bar's links. */
+  @media (min-width:701px){
+    .hero__content{ transform:translateY(-20px); }
+  }
+  @media (min-width:701px) and (max-height:820px){
+    .hero__content{ transform:translateY(-10px); }
+  }
+  @media (min-width:701px) and (max-height:680px){
+    .hero__content{ transform:translateY(-5px); }
+  }
+  /* --- Hero title lockup: brought closer to the Leave Behind's cover page,
+         which sets "THE", "LANDING", "at KLCI" and the coordinates all in
+         one serif family (Cormorant Garamond) instead of mixing in the
+         site's sans-serif (Jost) for "THE" and the coordinates -- that mix
+         is what read as clunky next to the brochure's single, unified
+         typographic system. "at KLCI" also drops the italic and the dimmed
+         color so it reads as the same weight of "voice" as LANDING above
+         it, just smaller, matching the cover. --- */
+  .hero__the{
+    display:block;
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:0.19em;letter-spacing:0.42em;
+    color:var(--on-dark);
+    margin-bottom:0.36em;
+    text-indent:0.42em;
+  }
+  .hero__title{
+    color:var(--on-dark);
+    font-weight:400;
+    /* Scaled back from clamp(3.2rem,10vw,7.6rem) -- at that size the
+       lockup dominated the frame and the uniform +0.02em tracking
+       exaggerated this serif's naturally uneven kerning pairs (wide
+       after L/N, tight around IN), reading as sloppy rather than grand.
+       Smaller + slightly negative tracking sits closer together and
+       reads as tightened, elegant display type instead. */
+    font-size:clamp(2.6rem,7.6vw,6.2rem);
+    line-height:0.96;
+    /* Backed off from -0.01em -- that negative tracking pulled every
+       pair in tight, and it read most noticeably as the leading L
+       crowding the A right after it. Flat 0 keeps the tightened,
+       elegant feel without that crowded edge. */
+    letter-spacing:0em;
+    text-shadow:0 2px 40px rgba(0,0,0,0.25);
+  }
+  .hero__title em{
+    font-style:normal;font-weight:400;
+    display:block;
+    font-size:0.44em;
+    color:var(--on-dark);
+    margin-top:0.3em;
+    letter-spacing:0.05em;
+  }
+  .hero__coords{
+    /* Was getting lost against the grass photo's own warm gold highlights
+       -- a hard dark shadow gives the gold text an edge to read against
+       regardless of what's directly behind it in the moving/varied photo. */
+    font-family:'Cormorant Garamond',serif;font-size:0.92rem;letter-spacing:0.32em;
+    color:var(--gold-light);margin-top:34px;
+    text-shadow:0 2px 10px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.9);
+  }
+  .hero__ctas{
+    margin-top:52px;display:flex;gap:18px;flex-wrap:wrap;justify-content:center;
+  }
+  /* Both hero buttons sat on a busy, moving photo with only a thin 1px
+     border (the outline one) or a mid-tone gold fill (the solid one) to
+     read against it -- neither had enough contrast to reliably separate
+     from the background at every point in the loop. A dark scrim + blur
+     behind both, plus a drop shadow for lift, makes them read clearly
+     regardless of what's directly behind them. The outline button's edge
+     also needed to be solid, not the deck-wide 45%-opacity --line-gold
+     hairline color (right for a quiet divider, too faint for a button
+     that has to hold its own next to the solid gold CTA beside it) -- a
+     full-opacity border plus a darker, less transparent scrim gives it
+     the same visual weight as "Request Information" while staying an
+     outline style. */
+  .hero__ctas .btn{
+    background:rgba(10,9,6,0.55);
+    border-color:var(--gold);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    box-shadow:0 6px 24px rgba(0,0,0,0.35);
+  }
+  .hero__ctas .btn:hover{background:var(--gold);}
+  .hero__ctas .btn.filled{
+    background:var(--gold);
+    box-shadow:0 6px 24px rgba(0,0,0,0.4);
+  }
+  .hero__ctas .btn.filled:hover{background:var(--gold-light);}
+  .hero__scroll{
+    position:absolute;bottom:calc(34px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:2;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    color:var(--on-dark-soft);font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.3em;
+  }
+  /* Short-viewport safety net (rotated/landscape phones, short browser
+     windows) -- independent of the width-based mobile breakpoint below.
+     At normal phone-portrait heights this never triggers, but on a short
+     viewport the hero's coords/buttons/scroll-hint stack didn't fit and
+     the "SCROLL" hint overlapped the CTA buttons. Tightening the rhythm
+     and dropping the purely decorative scroll hint keeps everything
+     clear of the buttons without changing the taller-viewport layout. */
+  @media (max-height:560px){
+    .hero__coords{margin-top:14px;}
+    .hero__ctas{margin-top:20px;}
+    .hero__scroll{display:none;}
+  }
+  .hero__scroll i{
+    width:1px;height:38px;background:linear-gradient(var(--gold-light),transparent);
+    display:block;animation:scrollpulse 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollpulse{0%,100%{opacity:.35;}50%{opacity:1;}}
+  /* Desktop-only Hero scale-up -- tried, then reverted. Two passes made
+     the title/coords/buttons/scroll-hint progressively bigger on desktop
+     (clamp ceilings up to 9.5rem on the title), but on closer look at the
+     actual rendered page (not a mis-zoomed browser view) that read as too
+     big rather than "confidently scaled" -- knocked back down to the
+     shared mobile/desktop values below, which is the sizing that reads
+     right. Desktop and mobile now render Hero identically again (no
+     desktop-only override at all), the same as before this bump. The one
+     size increase from this session that's staying is the nav bar links/
+     button, further down, which is a separate rule scoped to its own
+     >1180px breakpoint and untouched by this revert. */
+
+  /* ============ SECTION SCAFFOLD ============ */
+  section{position:relative;}
+
+
+
+
+
+  /* ============ OPPORTUNITY ============ */
+  #opportunity .display{font-size:clamp(2.1rem,4.4vw,3.6rem);}
+
+  /* ============ OWNERSHIP ============ */
+  .ownership__lines{margin-top:40px;font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.7;}
+  .ownership__lines p{margin:0 0 6px;}
+  .ownership__highlight{
+    margin-top:40px;font-size:clamp(1.6rem,2.8vw,2.1rem);line-height:1.4;color:var(--gold-light);font-style:normal;
+  }
+  .ownership__final{
+    margin-top:46px;font-size:clamp(1.6rem,2.8vw,2.3rem);color:var(--gold-light);font-style:italic;
+    line-height:1.5;
+  }
+
+  /* --- Desktop Ownership: a hard photo/panel split -- clean photo on the
+         left and a solid ink panel on the right carrying this live overlay,
+         matching the same split convention as Lakes/Hangars/Contact rather
+         than the earlier full-bleed gradient-scrim treatment. Panel width is
+         49.5%, matching Contact's live .contact-overlay__panel-bg (left:
+         50.5%, i.e. also a 49.5%-wide panel) exactly -- Ownership sits right
+         before Contact in the scroll, and with two different percentages
+         (this used to be 43%) the vertical photo/panel divider visibly
+         jogged sideways at that seam. Checked directly against rendered
+         boundingClientRect, not eyeballed: both panels now start at the
+         same fraction of the deck's width on every viewport tested. The
+         panel is a plain CSS fill (not a cleaned baked region like Lakes'
+         flat panel, since slide-9.jpg is a pure full-bleed photo) laid over
+         the right side of the image; .ownership-overlay__scrim keeps its
+         original name to avoid touching the HTML, but now paints a
+         hard-edged solid fill instead of a diagonal gradient. Lives inside
+         .slide-image-button so the existing mobile rule that hides that
+         button also hides this overlay on mobile for free -- mobile keeps
+         its own separate .ownership-mobile markup untouched. --- */
+  .ownership-overlay{
+    position:absolute;inset:0;z-index:2;
+    display:flex;align-items:center;justify-content:flex-end;
+    pointer-events:none;
+  }
+  .ownership-overlay__scrim{
+    /* width:50.2% (was 49.5%, i.e. left edge at 49.8% not 50.5%) -- Contact's
+       panel below was later moved from left:50.5% to left:49.8% to absorb a
+       white sliver on its jet-engine photo (see .contact-overlay), but
+       Ownership's panel was never moved to match. Ownership sits directly
+       above Contact in the scroll, so the two vertical photo/panel seams
+       need to land at the exact same x -- checked via boundingClientRect,
+       not eyeballed -- and this 0.7% gap was visibly jogging sideways
+       between the two slides. */
+    position:absolute;top:0;right:0;bottom:0;width:50.2%;
+    /* --stage, not --ink -- --stage is the dark panel color used
+       everywhere else in the deck (Masterplan/Floorplans/Milestones
+       panels, the nav, the footer); --ink is a separate, slightly darker
+       near-black reserved for other uses, so filling this panel with it
+       read as a subtly different background from the deck's other dark
+       panels. */
+    background:var(--stage);
+  }
+  .ownership-overlay__content{
+    /* Centered, not left-hugging -- content is exactly as wide as the dark
+       panel behind it (.ownership-overlay__scrim, now 50.2% to match
+       Contact's panel width), so this was already spanning the full panel;
+       the short, hard-broken lines just sat flush against its left edge,
+       leaving one lopsided gap of empty panel to their right instead of
+       even space on both sides. Same change on Contact below (its natural
+       twin, same panel width). */
+    position:relative;width:50.2%;text-align:center;
+    padding:0 clamp(44px,5.4vw,88px);color:var(--on-dark);
+    /* Same optical-centering nudge as Opportunity/Floorplans/Contact --
+       see the comment on .opportunity-overlay__content. Bumped from -80px
+       to -110px to match Contact's own lift (its natural twin, same panel
+       width). This block sits higher in its panel than Contact's does to
+       start with (shorter content, less text above it), so Contact's own
+       tiers were measured and found to undershoot here -- verified via
+       Playwright at 1920x1080 down to 1024x768/1280x720 and retuned so
+       every size keeps positive clearance under the fixed nav. Retuned
+       again (tiers only, base unchanged) after the shared --text-body
+       token was bumped for the site-wide copy-size pass -- these lines
+       read var(--text-body), so the block grew taller and ate into the
+       old tiers' margins at 1366x768/1280x720/1600x900. Retuned a third
+       time (base itself, not just the tiers) after the eyebrow/body copy
+       clamps were widened to keep scaling past ~1600px of viewport width
+       instead of capping there -- text keeps growing at width alone, with
+       no matching height change, so even TALL viewports (1920x1080,
+       previously safe at height>950 with no tier active) started clipping
+       under the nav once rendered wide enough to hit the new, larger
+       clamp ceilings. */
+    /* Nudged from -75px to -65px -- with the site-wide floor (min-clamp)
+       bump, tall/wide viewports (1600x900, 1920x1080) were down to 2-3px
+       of clearance under the nav; there's ample room below (200px+), so a
+       small further downward shift buys real margin without being visible. */
+    transform:translateY(-85px);
+  }
+  @media (max-height:950px){
+    .ownership-overlay__content{ transform:translateY(-43px); }
+  }
+  @media (max-height:820px){
+    .ownership-overlay__content{ transform:translateY(-28px); }
+  }
+  @media (max-height:740px){
+    .ownership-overlay__content{ transform:translateY(-14px); }
+  }
+  .ownership-overlay__eyebrow{
+    /* Matches .milestones-overlay__eyebrow -- same font/letter-spacing
+       role: the small gold section label at the top of a panel. Both
+       reverted back to their original 1.15rem -- see the --text-body
+       comment above. */
+    font-family:'Jost',sans-serif;font-size:1.15rem;letter-spacing:0.32em;text-transform:uppercase;
+    color:var(--gold-light);margin:0;
+  }
+  /* Margin tightened from 28px along with the rest of this block's spacing
+     (lines/highlight/final below) -- these gaps were tuned for --text-body
+     at its old, much larger size; now that it's back to its original
+     size, the same fixed-px gaps read as loose air between short lines
+     rather than a considered rhythm. Scaled down to match. */
+  .ownership-overlay .rule{ margin:18px auto; }
+  /* --on-dark here, not the dimmer --on-dark-soft used for body copy
+     elsewhere -- on-dark-soft is a muted tan that at this size sits too
+     close to --gold-light to read as a clearly different color. --on-dark
+     is the brighter, closer-to-true-white token, so it reads as white
+     next to the gold lines instead of another shade of gold. */
+  .ownership-overlay__lines{ margin-top:20px; font-size:var(--text-body); line-height:1.75; color:var(--on-dark); }
+  .ownership-overlay__lines p{ margin:0 0 6px; }
+  /* highlight stays at the small --text-body size, same as the plain
+     .ownership-overlay__lines around it -- tried matching it to .final's
+     bigger statement size (below) since they'd historically shared one
+     size, but next to the rest of this panel's small white body copy, a
+     bigger WHITE line read as visual noise/messy rather than emphasis --
+     unlike .final, which is both bigger AND gold, so it reads as a
+     deliberate closing accent instead of just "this one line is randomly
+     larger." Kept as its own class (not merged back into
+     .ownership-overlay__lines) since the two still need independent
+     margins. */
+  .ownership-overlay__highlight{
+    margin:20px 0;font-size:var(--text-body);color:var(--on-dark);font-style:normal;
+    line-height:1.75;
+  }
+  /* .final is the panel's one other gold moment besides the "Ownership"
+     eyebrow -- it had been folded into var(--text-body) at some point (a
+     leftover from the --text-body revert pass, which was about the
+     regular body lines, not this one), leaving "Ownership gives you the
+     freedom to stay." reading as small as a caption instead of the
+     closing statement it is, and noticeably smaller than the equivalent
+     gold quote on Contact's own panel (.contact-overlay__quote,
+     clamp(1.65rem,2vw,2.5rem)) or this exact copy's own mobile size
+     (.ownership__final, clamp(1.6rem,2.8vw,2.3rem) -- see the OWNERSHIP
+     block up top). Restored to that same scale here; .highlight above it
+     stays small (see its own comment) since bumping both together read as
+     messy rather than emphasized. */
+  .ownership-overlay__final{
+    margin-top:22px;font-size:clamp(1.5rem,1.9vw,2.1rem);color:var(--gold-light);font-style:italic;
+    line-height:1.4;
+  }
+  /* Short-height spacing tightening, added once the site-wide floor
+     (min-clamp) values were raised alongside the ceilings -- the block is
+     now taller at every width, not just wide ones, so the existing
+     transform-only tiers above are no longer enough on their own at short
+     laptop window heights. Placed after every base .ownership-overlay__*
+     rule above so these actually win the cascade. */
+  @media (max-height:820px){
+    .ownership-overlay .rule{ margin:16px auto; }
+    .ownership-overlay__lines{ margin-top:20px; }
+    .ownership-overlay__highlight{ margin:20px 0; }
+    .ownership-overlay__final{ margin-top:22px; }
+  }
+  @media (max-height:700px){
+    .ownership-overlay .rule{ margin:8px auto; }
+    .ownership-overlay__lines{ margin-top:10px; }
+    .ownership-overlay__highlight{ margin:10px 0; }
+    .ownership-overlay__final{ margin-top:12px; }
+  }
+
+  /* --- Desktop Lakes Region: same live-overlay-over-cleaned-photo technique
+         as the Ownership slide above, but a hard split (flat panel colour
+         baked into the left ~47% of slide-5.jpg, no gradient) with icon +
+         copy rows instead of one block of prose, so a page with this much
+         text reads as organized reference material rather than a wall of
+         type. Lives inside .slide-image-button so it's hidden on mobile
+         for free; mobile keeps its own separate .lakes-mobile markup. --- */
+  .lakes-overlay{
+    position:absolute;top:0;bottom:0;left:0;right:53%;z-index:2;
+    display:flex;align-items:center;justify-content:center;
+    pointer-events:none;
+  }
+  .lakes-overlay__content{
+    position:relative;width:100%;max-width:var(--overlay-max-lakes);
+    padding-left:clamp(24px,3vw,48px);padding-right:clamp(24px,3vw,48px);
+    color:var(--on-dark);
+    text-align:center;
+    /* Same optical-centering nudge as Opportunity/Ownership/Floorplans/
+       Contact above -- true math-center in the panel (align-items:center on
+       the parent, no transform) was the one overlay content block in the
+       deck left un-nudged, so it read as sitting lower/less "pulled up" than
+       its siblings even though its own top/bottom clearance isn't actually
+       out of line. Matched to roughly half of Ownership's -65px since this
+       block runs a bit taller (three icon rows + a closing line) and didn't
+       need as much lift to read consistently with the rest of the set. */
+    transform:translateY(-35px);
+  }
+  @media (max-height:950px){
+    .lakes-overlay__content{ transform:translateY(-15px); }
+  }
+  @media (max-height:820px){
+    .lakes-overlay__content{ transform:translateY(-5px); }
+  }
+  @media (max-height:740px){
+    .lakes-overlay__content{ transform:translateY(5px); }
+  }
+  .lakes-overlay__eyebrow{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    /* Reverted along with .opportunity-overlay__eyebrow and the other
+       overlay eyebrows -- see the --text-body comment above. */
+    font-size:clamp(1.3rem,1.9vw,1.75rem);letter-spacing:0.26em;text-transform:uppercase;
+    color:var(--gold-light);margin:0;
+  }
+  .lakes-overlay .rule{ margin:16px auto 6px; }
+  .lakes-overlay__row{
+    /* Was justify-content:center -- each row centers the icon+divider+text
+       group as a whole, but the three rows' text blocks are each a
+       different natural width, so the group's total width differs row to
+       row and centering it shifts the icon/divider to a different x
+       position on every row. flex-start pins the icon to the row's own
+       left edge instead, which is identical across all three rows, so the
+       icon/divider column finally lines up regardless of how long each
+       row's text happens to be. */
+    display:flex;align-items:flex-start;justify-content:flex-start;gap:20px;padding:16px 0;
+    text-align:left;
+  }
+  .lakes-overlay__icon{
+    flex:0 0 34px;width:34px;padding-top:2px;color:var(--gold);
+  }
+  .lakes-overlay__icon svg{ width:100%; height:auto; display:block; }
+  .lakes-overlay__divider{
+    flex:0 0 1px;align-self:stretch;background:var(--gold-dim);opacity:0.8;
+  }
+  .lakes-overlay__text{
+    margin:0;font-size:var(--text-body);line-height:1.6;color:var(--on-dark);
+  }
+  .lakes-overlay__hr{
+    height:1px;background:rgba(179,146,78,.28);margin:0;
+  }
+  .lakes-overlay__final-row{
+    display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;
+  }
+  .lakes-overlay__bracket{
+    flex:0 0 16px;width:16px;height:36px;
+    border-left:1px solid var(--gold);border-bottom:1px solid var(--gold);
+  }
+  .lakes-overlay__final{
+    margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;
+    /* Reverted along with the body copy above -- was scaled up ~15-20%
+       from clamp(1.4rem,1.7vw,2.1rem) to keep pace with --text-body's
+       climb; now that --text-body is back to its original size, this
+       comes back down with it. */
+    font-size:clamp(1.4rem,1.7vw,2.1rem);color:var(--gold-light);
+  }
+  /* The larger type above makes this block taller. At 1280x720 it's
+     taller than the entire safe band between the nav and the bottom-left
+     "Scroll to explore" hint, so repositioning alone can't fix it --
+     shifting down to clear the nav just pushes the closing line into the
+     hint instead (both verified via Playwright). Tightening the three
+     rows' own spacing shrinks the block enough that plain flex-centering
+     (no added transform) clears both ends on its own. Placed after every
+     base .lakes-overlay__* rule above so these actually win the cascade
+     at matching heights -- @media alone doesn't add specificity. */
+  /* max-height:920px tier added once the site-wide floor (min-clamp)
+     values were raised alongside the ceilings -- at 1600x900 (a common
+     laptop size) the block now goes all the way to 0px of clearance with
+     no tightening at all, since 900 falls above every existing tier. */
+  @media (max-height:920px){
+    .lakes-overlay__row{ padding:12px 0; }
+    .lakes-overlay__final-row{ margin-top:14px; }
+  }
+  @media (max-height:820px){
+    .lakes-overlay__row{ padding:10px 0; }
+    .lakes-overlay .rule{ margin:14px auto 4px; }
+    .lakes-overlay__final-row{ margin-top:16px; }
+  }
+  @media (max-height:740px){
+    .lakes-overlay__row{ padding:8px 0; }
+    .lakes-overlay__final-row{ margin-top:10px; }
+  }
+  /* Added once the site-wide floor (min-clamp) values were raised alongside
+     the ceilings -- the block is now taller at every width, not just wide
+     ones, so the shortest common laptop windows (~640-680px tall) need a
+     tighter tier than 740px covered. */
+  @media (max-height:680px){
+    .lakes-overlay__row{ padding:2px 0; }
+    .lakes-overlay .rule{ margin:8px auto 2px; }
+    .lakes-overlay__final-row{ margin-top:4px; }
+  }
+
+  /* --- Desktop Masterplan REBUILD: the old baked slide-6.jpg only had its
+         site-plan diagram at ~1024px of native width (the right ~64% of a
+         1600px-wide source), so on any desktop wider than that -- i.e. most
+         desktop/laptop screens -- the browser had to upscale it, softening
+         exactly the fine hangar-box lines mobile keeps crisp (mobile uses
+         a separate, uncropped masterplan-diagram.jpg at its own native
+         size, never upscaled). Rebuilt as a live layout instead: a real
+         var(--stage) panel (matching every other slide's panel colour,
+         replacing the flat colour that used to be baked into slide-6.jpg)
+         holding the same overlay text, plus that same sharper
+         masterplan-diagram.jpg shown live on the right so it's the exact
+         asset mobile already proved crisp -- it still gets upscaled past
+         900px on very wide screens, so it won't look quite as sharp as a
+         phone screen, but it's a real improvement over the old 1024px-wide
+         crop. A crisp gold accent line marks the panel/photo seam, per the
+         explicit fallback request if full crispness wasn't achievable.
+         Lives inside .slide-image-button so it's hidden on mobile for free;
+         mobile keeps its own separate .masterplan-mobile markup. --- */
+  .masterplan-desktop{
+    /* --ink, not --stage -- Floorplans' dark panel right after this one in
+       the deck is baked directly into its photo at --ink, so the two
+       back-to-back panels were rendering as two visibly different shades
+       of dark instead of reading as one continuous collection. Matched to
+       --ink so they feel like the same material. */
+    position:absolute;inset:0;z-index:2;
+    display:flex;background:var(--ink);
+  }
+  .masterplan-desktop__panel{
+    /* z-index:1, and the photo's matching -2px margin-left below --
+       defensive pairing against a reported "can't see the seam line /
+       cream photo doesn't fill up to it" symptom. Two flex children sized
+       by percentage (36%/auto) can round to sub-pixel-different heights
+       across browser engines; if Safari ever rounds this panel a hair
+       taller than the photo, a sliver of this element's own transparent
+       background would let .masterplan-desktop's dark --ink show through
+       as an unwanted seam, and -- worse -- could paint OVER the photo's
+       left edge instead of under it, hiding the ::after gold line below
+       depending on paint order. Pulling the photo 2px under the panel and
+       stacking the panel above it removes both failure modes outright:
+       there is no longer a gap width for either color to show through,
+       and the gold line (part of this higher-stacked element) always
+       paints on top no matter how the rounding falls. */
+    position:relative;z-index:1;flex:0 0 36%;
+    display:flex;align-items:center;justify-content:center;
+    padding:0 clamp(28px,3.4vw,52px);text-align:center;
+  }
+  .masterplan-desktop__panel::after{
+    content:'';position:absolute;top:0;right:0;bottom:0;width:1px;
+    background:var(--gold);box-shadow:0 0 14px 0 rgba(179,146,78,0.6);
+  }
+  /* background:var(--panel-light), not the dark --stage this section
+     otherwise uses -- the site plan artwork itself is nearly edge-to-edge
+     content on a cream sheet (hangar numbers and labels sit close to
+     every edge, almost no dead margin), so object-fit:cover was cropping
+     into real content (a hangar number, a runway label) depending on the
+     window's exact aspect ratio. Switched to contain, same fix as
+     Floorplans below, and the letterbox color has to match the artwork's
+     own cream instead of the dark stage or the bars would show as a
+     visible dark frame instead of blending in. */
+  .masterplan-desktop__photo{
+    /* #e8dbc8, not var(--panel-light) -- object-fit:contain below can
+       letterbox this photo at window heights where the container's aspect
+       ratio doesn't match masterplan-diagram.jpg's own (any non-16:9
+       height, 16:10 laptops included), and --panel-light (#eee7d8) is a
+       visibly different, more olive cream than this specific photo's own
+       paper tone. This value tracks the photo's OWN edge color, sampled
+       directly from the file (previously #f5efe4, tuned before
+       masterplan-diagram.jpg was re-color-matched to Floorplans' warmer
+       paper tone -- once that photo got warmer, this fallback fell out of
+       sync with it and started showing as its own visible band, the same
+       "different background color" bug all over again but scoped to the
+       letterbox instead of the photo. Re-sample this if the photo asset
+       ever changes again. Floorplans gets the identical fix, scoped to
+       its own section -- see #floorplans.light-slide above. */
+    /* margin-left:-2px + z-index:1 on the sibling panel (see comment
+       there): guarantees this element's left edge always tucks a hair
+       under the panel rather than risking a sub-pixel gap next to it. */
+    position:relative;z-index:0;flex:1 1 auto;overflow:hidden;
+    background:#e8dbc8;margin-left:-2px;
+  }
+  .masterplan-desktop__photo img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:contain;object-position:center center;display:block;
+  }
+  .masterplan-overlay__content{
+    position:relative;width:100%;
+    color:var(--on-dark);
+  }
+  .masterplan-overlay__eyebrow{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    text-transform:uppercase;letter-spacing:0.1em;line-height:1.3;
+    /* Reverted along with .opportunity-overlay__eyebrow and the other
+       overlay eyebrows -- see the --text-body comment above. */
+    font-size:clamp(1.3rem,1.9vw,1.75rem);color:var(--gold-light);margin:0;
+  }
+  /* Was ".masterplan-overlay .rule" -- but there is no element carrying a
+     bare "masterplan-overlay" class in this slide's markup (only
+     "masterplan-overlay__content" etc.), so that selector never matched
+     anything and the rule fell back to the base ".rule{margin:28px 0}" --
+     left/right margin 0, not auto, so it sat flush against the left edge
+     of its already-centered content box instead of centering itself. Same
+     fix, correct ancestor class. */
+  .masterplan-overlay__content .rule{ margin:22px auto; }
+  .masterplan-overlay__sub{
+    /* Bumped up along with the rest of this panel's supporting copy --
+       this and .masterplan-overlay__label were sized noticeably smaller
+       than the equivalent caption/label text on every other slide.
+       Nudged again, a smaller step than the eyebrow above it -- this is a
+       short caps sub-label sitting right under the number/stat block
+       below, not a paragraph, so it only needs to keep pace, not match
+       body-copy scale. */
+    font-family:'Jost',sans-serif;font-size:clamp(1.2rem,1.25vw,1.65rem);
+    letter-spacing:0.1em;text-transform:uppercase;line-height:1.7;
+    color:var(--on-dark);margin:0;
+  }
+  .masterplan-overlay__stat{ margin-top:30px; }
+  .masterplan-overlay__num{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(2.3rem,2.9vw,3.6rem);color:var(--gold-light);margin:0;
+  }
+  .masterplan-overlay__num.small{ font-size:clamp(1.5rem,1.9vw,2.4rem); }
+  .masterplan-overlay__label{
+    font-family:'Jost',sans-serif;font-size:clamp(1.05rem,1.1vw,1.4rem);
+    letter-spacing:0.12em;text-transform:uppercase;color:var(--on-dark);margin:8px 0 0;
+  }
+  .masterplan-overlay__group{ margin-top:26px; }
+  .masterplan-overlay__group .masterplan-overlay__num{ margin-bottom:2px; }
+  .masterplan-overlay__hr{
+    height:1px;width:40px;background:var(--line-gold);margin:24px auto;
+  }
+  /* Short-height tightening, added once the site-wide floor (min-clamp)
+     values were raised alongside the ceilings -- the block is now taller
+     at every width, not just wide ones, so short laptop windows
+     (~640-720px tall) need their own tier too. Placed after every base
+     .masterplan-overlay__* rule above so these actually win the cascade. */
+  @media (max-height:720px){
+    .masterplan-overlay__content .rule{ margin:12px auto; }
+    .masterplan-overlay__stat{ margin-top:16px; }
+    .masterplan-overlay__group{ margin-top:14px; }
+    .masterplan-overlay__hr{ margin:12px auto; }
+  }
+  @media (max-height:660px){
+    .masterplan-overlay__content .rule{ margin:6px auto; }
+    .masterplan-overlay__stat{ margin-top:8px; }
+    .masterplan-overlay__group{ margin-top:8px; }
+    .masterplan-overlay__hr{ margin:6px auto; }
+  }
+
+  /* --- Desktop Floorplans: same live-overlay-over-cleaned-photo technique,
+         centered to match the panel's original centered composition (flat
+         panel colour baked into the left ~35% of slide-7.jpg; the Top
+         Floor/Ground Level plans on the right are untouched). Same gold/
+         cream two-line headline as the .opp-mobile__eyebrow(.cream)
+         treatment, just resized down from the baked version's oversized
+         type. Lives inside .slide-image-button so it's hidden on mobile
+         for free; mobile keeps its own separate .floorplans-mobile
+         markup. --- */
+  .floorplans-overlay{
+    position:absolute;inset:0;z-index:2;
+    display:flex;align-items:center;
+    pointer-events:none;
+  }
+  .floorplans-overlay__content{
+    /* Same optical-centering nudge as Opportunity/Contact -- see that
+       comment. This block is much shorter than those two, so the same
+       fixed offset reads as a smaller fraction of its own height, but
+       matching the same pixel value keeps the fix consistent site-wide. */
+    position:relative;width:35%;
+    padding:0 clamp(28px,3.4vw,52px);text-align:center;
+    transform:translateY(-80px);
+  }
+  .floorplans-overlay__eyebrow{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    text-transform:uppercase;letter-spacing:0.1em;line-height:1.35;
+    /* Reverted along with .opportunity-overlay__eyebrow and the other
+       overlay eyebrows -- see the --text-body comment above. */
+    font-size:clamp(1.3rem,1.9vw,1.75rem);color:var(--gold-light);margin:0;
+  }
+  .floorplans-overlay__eyebrow.cream{ color:var(--on-dark); }
+  .floorplans-overlay .rule{ margin:22px auto; }
+
+  /* --- Desktop Milestones: same live-overlay-over-cleaned-photo technique,
+         left-aligned to match the panel's original left-aligned
+         composition (flat panel colour baked into slide-8.jpg everywhere
+         except the embedded site photo, roughly 55-93% across / 10-68%
+         down). Two independent blocks: a from-scratch timeline on the left
+         (mirrors the mobile .ms-mobile__* grid at a smaller desktop scale)
+         and a caption under the photo reusing the shared
+         .milestone-photo__* classes already defined once for the mobile
+         version of this same copy. The baked title/timeline/caption all
+         ran noticeably larger than every other slide's live text -- this
+         brings them down to match. Lives inside .slide-image-button so
+         it's hidden on mobile for free; mobile keeps its own separate
+         .milestones-mobile markup. --- */
+  .milestones-overlay{ position:absolute;inset:0;z-index:2;pointer-events:none; }
+  .milestones-overlay__timeline{
+    /* align-items:center (not flex-start) plus a max-width + margin:0 auto
+       on the list below -- centers the whole block (eyebrow, rule, list) as
+       a unit within the left half, matching the Lakes/Ownership treatment,
+       instead of hugging the left edge of this half with dead space to its
+       right. The date/dot/label grid inside each row keeps its own
+       left-aligned internal layout (numbers stay right-aligned against the
+       dot line) -- only the block as a whole is centered. */
+    /* right:45.3%, not width:50% -- the flat panel colour baked into
+       slide-8.jpg actually runs from the left edge to ~54.7% (verified by
+       sampling the source image), not a clean 50/50 split against the
+       embedded site photo. Centering within the true panel width instead
+       of an even half keeps the block dead-center in the panel viewers
+       actually see, not off by the extra ~4.7% of panel that sits to the
+       right of the embedded photo's left edge. */
+    position:absolute;left:0;top:0;bottom:0;right:45.3%;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    padding:0 clamp(36px,4.4vw,64px);text-align:center;
+  }
+  .milestones-overlay__eyebrow{
+    /* Reverted back to its original 1.15rem, matching .ownership-overlay__
+       eyebrow -- see the --text-body comment above. */
+    font-family:'Jost',sans-serif;font-size:1.15rem;letter-spacing:0.32em;text-transform:uppercase;
+    color:var(--gold-light);margin:0;
+  }
+  .milestones-overlay .rule{ margin:32px auto 10px;width:72px; }
+  .milestones-overlay__list{
+    list-style:none;margin:40px auto 0;padding:0;position:relative;
+    width:100%;max-width:360px;
+  }
+  .milestones-overlay__list::before{
+    /* left:122px -- centered under the dot column (92px date + 20px gap +
+       10px to the dot's own center), matching the wider 92px date column
+       used above (was 84px). */
+    content:'';position:absolute;left:122px;top:10px;bottom:10px;width:1px;
+    background:var(--line-on-dark);
+  }
+  .milestones-overlay__row{
+    /* This whole timeline was left small and top-anchored in a much
+       taller column than it needed, leaving a lot of dead panel above
+       and below it -- bigger type plus taller row spacing lets it
+       actually fill the left half the way the photo+caption fill the
+       right half. */
+    display:grid;grid-template-columns:92px 20px 1fr;align-items:center;
+    column-gap:20px;padding:32px 0;position:relative;text-align:left;
+  }
+  .milestones-overlay__date{
+    /* on-dark, not on-dark-soft -- same white-vs-gold contrast fix applied
+       elsewhere in this deck (Ownership lines, Contact copy, this same
+       panel's caption body): on-dark-soft is a muted, dim tan that read as
+       faint/easy-to-miss against the dark panel, flagged directly as
+       "might get lost." */
+    font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,1.6vw,2.05rem);color:var(--on-dark);
+    text-align:right;line-height:1.3;
+  }
+  .milestones-overlay__dot{
+    width:15px;height:15px;border-radius:50%;border:1px solid var(--gold);
+    background:var(--stage);justify-self:center;position:relative;z-index:1;
+  }
+  .milestones-overlay__row.is-complete .milestones-overlay__dot{ background:var(--gold); }
+  .milestones-overlay__label{
+    font-family:'Jost',sans-serif;font-size:clamp(1.2rem,1.3vw,1.6rem);letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--on-dark);text-align:left;
+  }
+  .milestones-overlay__caption{
+    /* Back to the smaller, left-anchored treatment under the photo --
+       the "make it bigger and centered" note was about the timeline on
+       the left (below), not this caption. */
+    position:absolute;left:55%;right:6%;top:71%;
+  }
+  .milestones-overlay__caption .milestone-photo__title{ font-size:clamp(1.4rem,1.85vw,2.2rem); }
+  .milestones-overlay__caption .milestone-photo__body{ font-size:var(--text-body); }
+  /* The larger type on this timeline (eyebrow/date/label all read var()-
+     free clamps that were raised for the site-wide copy pass) makes the
+     whole 4-row column taller; at 1280x720 the plain flex-center pushed
+     the eyebrow up under the fixed nav -- verified via Playwright.
+     Tightening each row's own padding plus the list's top margin on short
+     viewports shrinks the column enough to clear the nav without any
+     added transform. Placed after every base .milestones-overlay__* rule
+     above so these actually win the cascade at matching heights --
+     @media alone doesn't add specificity. */
+  @media (max-height:820px){
+    .milestones-overlay__row{ padding:20px 0; }
+    .milestones-overlay__list{ margin-top:24px; }
+    .milestones-overlay .rule{ margin:20px auto 8px; }
+  }
+  @media (max-height:740px){
+    .milestones-overlay__row{ padding:12px 0; }
+    .milestones-overlay__list{ margin-top:16px; }
+  }
+
+  /* --- Desktop Opportunity (the deck's first slide): same live-overlay-
+         over-cleaned-photo technique, centered this time to match the
+         panel's original centered composition. The baked version ran the
+         headline and body copy noticeably larger than every other slide's
+         live text -- this brings it down to the same scale as the
+         Ownership/Lakes overlays instead of towering over them. Lives
+         inside .slide-image-button so it's hidden on mobile for free;
+         mobile keeps its own separate .opp-mobile markup. --- */
+  .opportunity-overlay{
+    /* Bounded to the actual flat panel (left:0 to right:53%, i.e. the left
+       47% of slide-2.jpg -- verified directly against the source image's
+       pixels, panel/photo split falls at 46.9%) instead of spanning the
+       whole slide with justify-content:flex-start. flex-start on a
+       full-width container just pins a max-width-capped box flush to the
+       slide's left edge -- on any screen wider than ~1450px the box (capped
+       at --overlay-max-opportunity) went noticeably narrower than the 47%
+       panel behind it, so the text sat flush left with dead panel space to
+       its right instead of centered. Bounding the container to the panel's
+       own edges and centering within THAT works at any width. */
+    position:absolute;top:0;bottom:0;left:0;right:53%;z-index:2;
+    display:flex;align-items:center;justify-content:center;
+    pointer-events:none;
+  }
+  .opportunity-overlay__content{
+    /* True mathematical center (align-items:center on the parent) reads as
+       sitting slightly low -- a well-known optical effect, block centered
+       in the box looks like it's drifted toward the bottom half. Nudging
+       it up a fixed amount corrects for that; same fix on Floorplans and
+       Contact below, which had the identical complaint. */
+    position:relative;width:100%;max-width:var(--overlay-max-opportunity);
+    padding:0 clamp(28px,3.4vw,56px);text-align:center;color:var(--on-dark);
+    /* Retuned from -80px now that the larger type above makes this block
+       noticeably taller. The old upward lift was calibrated for the old,
+       shorter block; kept as-is here it pinned the (now taller) block up
+       near the nav with a big dead gap below before the "Scroll to
+       explore" hint -- top-heavy, not centered. The fixed nav also eats
+       into the top of the panel without a matching element at the bottom,
+       so true math-center (transform:0) still reads a little high; a
+       small DOWNWARD nudge instead of the old upward one is what actually
+       balances the visible space above/below the block. Verified via
+       Playwright at 1920x1080 down to 1280x720/1024x768: even margins,
+       positive nav clearance everywhere.
+       Nudged back up from +20px to -5px per direct request, then a touch
+       further to -10px, then to -18px per a further "move it up a bit"
+       request once the logo size itself was settled -- the block keeps
+       reading closer to the nav each round, with plenty of clearance to
+       spare below at every size from 1280x800 up. Below that (the two
+       shortest common laptop heights) it needs the tier right below to
+       stay clear of the nav -- see that rule's own comment.
+       Pushed further, to -70px, after the site-wide copy-size revert: the
+       block is now much shorter than when -18px was tuned, so that old
+       value left a big dead gap above the logo and read low/uncentered
+       compared to Ownership/Contact next to it (which sit at -65px/-85px
+       for a similar-height block) -- matched to that same rough magnitude
+       so this page reads like part of the same set. */
+    transform:translateY(-70px);
+  }
+  /* Old tiers here (+14px / +22px) were compensating for the base rule
+     overlapping the nav at short heights -- but they were tuned against
+     the OLD, much taller pre-revert block. Now that the block is shorter
+     (and the base itself moved from -18px to -70px), re-tuned to keep
+     the same "less lift at short heights" relationship without going
+     positive (which reintroduces the low/dead-gap-above look this pass
+     is fixing). Placed after the base rule above so it wins the cascade. */
+  @media (max-height:920px){
+    .opportunity-overlay__content{ transform:translateY(-40px); }
+  }
+  /* At the two shortest heights actually seen (1091x641, 1257x742) checked
+     again after the retune above and still clear of the nav with margin
+     to spare, so this tier stays proportionally close to the one above. */
+  @media (max-height:760px){
+    .opportunity-overlay__content{ transform:translateY(-20px); }
+  }
+  /* Tried converting this from a flat 52px (matching the mobile logomark's
+     own fixed size) to a clamp that grew up to 96px on wide monitors, to
+     match the pace of the clamp()'d copy around it. On the actual
+     rendered page that read as too big -- reverted back to the flat
+     mobile-matched size copy sizing on this page was already confirmed
+     right, so only the logo itself needed to come back down, not the
+     headline/body text or the block's position. */
+  .opportunity-overlay__logo{ width:52px; height:auto; margin:0 auto 22px; display:block; }
+  .opportunity-overlay__eyebrow{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    text-transform:uppercase;letter-spacing:0.1em;line-height:1.32;
+    /* Reverted along with the other overlay eyebrows and --text-body above
+       -- see that comment. */
+    font-size:clamp(1.3rem,1.9vw,1.75rem);color:var(--gold-light);margin:0;
+  }
+  .opportunity-overlay__not{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+    text-transform:uppercase;letter-spacing:0.06em;
+    font-size:var(--text-body);color:var(--on-dark);margin:14px 0 0;
+  }
+  /* Rule/copy margins tightened along with --text-body's revert -- these
+     gaps were tuned for the old, much larger copy size and now read as
+     loose air around the smaller reverted text. */
+  .opportunity-overlay .rule{ margin:16px auto; }
+  .opportunity-overlay__copy{
+    /* --on-dark, not --on-dark-soft -- same white-vs-gold fix as the rest
+       of the deck: on-dark-soft is a muted tan that reads too close to
+       gold next to this panel's eyebrow/"Not this one." accents.
+       --text-body, not -sm -- matching Milestones' caption body and the
+       rest of the deck's overlay copy instead of running smaller. */
+    font-size:var(--text-body);line-height:1.75;color:var(--on-dark);margin:0;
+  }
+  .opportunity-overlay__copy + .opportunity-overlay__copy{ margin-top:14px; }
+  .opportunity-overlay__copy em{ color:var(--on-dark); font-style:italic; }
+  /* Short-height tightening, same reasoning/placement rule as Lakes below:
+     placed after every base .opportunity-overlay__* rule so these actually
+     win the cascade. Needed once the site-wide floor (min-clamp) values
+     were raised alongside the ceilings -- the block is now taller at EVERY
+     width, not just very wide ones, so short laptop windows (~640-720px
+     tall) need their own tier too. */
+  @media (max-height:720px){
+    /* The clamp()'d logo above is now the tallest single element in the
+       block, so short-height tiers need to shrink IT too, not just the
+       margins around it, or it eats back the room those margin cuts free
+       up. */
+    .opportunity-overlay__logo{ width:52px; margin:0 auto 12px; }
+    .opportunity-overlay__not{ margin-top:12px; }
+    .opportunity-overlay .rule{ margin:14px auto; }
+    .opportunity-overlay__copy + .opportunity-overlay__copy{ margin-top:12px; }
+  }
+  @media (max-height:660px){
+    .opportunity-overlay__logo{ width:48px; margin:0 auto 6px; }
+    .opportunity-overlay__not{ margin-top:6px; }
+    .opportunity-overlay .rule{ margin:8px auto; }
+    .opportunity-overlay__copy + .opportunity-overlay__copy{ margin-top:8px; }
+  }
+
+  /* --- Desktop Hangars, take seven: rebuilt again to match a second,
+         more detailed reference the user sent (a photo-mosaic editorial
+         spread), which itself is the same composition as the deck's own
+         original slide-3.jpg full-bleed background image -- just with its
+         bottom-left cell swapped for the materials+blueprint combo instead
+         of the plane-in-flight shot. Rather than fight object-fit against
+         that baked composite, the two photos it uniquely contributes
+         (hangar row at sunset, the grass meadow) were cropped out of
+         slide-3.jpg as their own standalone files
+         (hangars-sunset-exterior.jpg, hangars-grass-field.jpg) so each cell
+         gets its own real <img>, same as every other cell here. Top row:
+         headline (left, text now left-aligned per the reference, not
+         centered) / sunset hangar row (wide) / owner's lounge interior.
+         Bottom row: swatches / blueprint / grass meadow, three equal-size
+         cells side by side, then the specs panel. (Column percentages
+         below are since retuned away from slide-3.jpg's original baked
+         layout to make hangars/grass/materials read as the same size --
+         see the comment on .hangars-desktop__row--bottom.) Lives inside
+         .slide-image-button so it's hidden on mobile for free; mobile's
+         .hangars-mobile markup is untouched. --- */
+  .hangars-desktop{
+    position:absolute; inset:0; z-index:2;
+    display:grid; grid-template-rows:1fr 1fr;
+    gap:clamp(14px,1.8vw,26px); background:var(--stage);
+  }
+  .hangars-desktop__row{ display:grid; gap:clamp(14px,1.8vw,26px); min-height:0; }
+  /* Top row keeps its 3-way split (head / hangar photo / lounge). Bottom
+     row is 4-way: swatches, blueprint, and grass as three EQUAL, side by
+     side image cells (22% each -- together they exactly fill the same
+     66% of the row that the top row's first two 33% cells occupy), plus
+     the specs panel taking the remaining 1fr, same role as the lounge
+     cell above it. This replaces an earlier attempt that combined
+     swatches+blueprint into one overlaid cell -- that read as "one image
+     with an inset," not three separate, equally-sized pictures side by
+     side, which is what was actually asked for. */
+  .hangars-desktop__row--top{ grid-template-columns:33% 33% 1fr; column-gap:6px; }
+  .hangars-desktop__row--bottom{ grid-template-columns:22% 22% 22% 1fr; column-gap:6px; }
+  /* Pull photo-to-photo gaps tight so each row reads as one continuous
+     filmstrip -- top row's hangar exterior + lounge, bottom row's
+     swatches/blueprint/grass -- rather than every gap in the grid getting
+     identical breathing room. The two text/data cells (the headline above,
+     the specs panel below) keep their own generous margin so their copy
+     still gets to breathe; only photo-to-photo tightens. This is the
+     variant with the bottom row's three photos also pulled tight (not
+     just the top row) -- consistent rule across both rows: photos huddle,
+     text/data panels get room. */
+  .hangars-desktop__head{ margin-right:26px; }
+  .hangars-desktop__grass{ margin-right:26px; }
+  .hangars-desktop__cell{
+    position:relative; overflow:hidden; background:var(--stage);
+    min-width:0; min-height:0;
+  }
+  .hangars-desktop__cell img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .hangars-desktop__lounge img{ object-position:center 40%; }
+  /* Blueprint was on object-fit:contain (its own cream sheet, not a photo,
+     so cropping seemed riskier) -- but the sheet's aspect ratio (925x991)
+     is so close to this cell's (440x487) that contain left an ~8px letterbox
+     gap top and bottom, and that sliver of bare --panel-light beneath a
+     photo that bleeds fully to its own cell edges either side was exactly
+     what read as "not lining up" with swatches and grass. Switched to
+     cover like every other cell: the near-identical aspect ratio means it
+     only trims ~7px off each SIDE, zero vertical crop -- the axonometric
+     drawing and the "80' x 80' Unit Represented" caption stay fully
+     visible, and now all three bottom cells bleed edge to edge the same
+     way. --panel-light stays as the cell's background color (a beat behind
+     the image while it decodes), it just no longer does double duty as a
+     visible letterbox filler. */
+  .hangars-desktop__blueprint{ background:var(--panel-light); }
+  /* Headline cell: left-aligned this time (not centered) to match the
+     reference -- it now occupies the same narrow left column the dark
+     panel always held in the baked slide-3.jpg version, rather than a wide
+     center gutter, so there isn't room or a reason to center it. */
+  .hangars-desktop__head{
+    /* Centered now that the grid is a uniform, more-square 3x2 layout --
+       left-aligned made sense when this cell was a narrow strip, not once
+       it's the same size as every photo cell around it. */
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center; padding:clamp(16px,2.2vw,32px); min-width:0; min-height:0;
+  }
+  .hangars-desktop__head-title{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    text-transform:uppercase;letter-spacing:0.1em;line-height:1.28;
+    font-size:clamp(1.85rem,2.5vw,3.1rem);color:var(--gold-light);margin:0;
+  }
+  .hangars-desktop__head .rule{ margin:24px 0; }
+  .hangars-desktop__head-sub{
+    /* --on-dark, not --on-dark-soft -- same white-vs-gold fix as the rest
+       of the deck: this sits directly under the gold-light title above it. */
+    font-family:'Jost',sans-serif;font-size:clamp(1rem,1.05vw,1.35rem);
+    letter-spacing:0.08em;text-transform:uppercase;line-height:1.7;
+    color:var(--on-dark);margin:0;
+  }
+  .hangars-desktop__specs-panel{
+    display:flex; align-items:flex-start; gap:clamp(10px,1.4vw,20px);
+    padding:clamp(10px,1.4vw,20px);
+  }
+  .hangars-desktop__specs-col{ flex:1 1 0; min-width:0; }
+  .hangars-desktop__specs-col + .hangars-desktop__specs-col{
+    padding-left:clamp(10px,1.4vw,20px); border-left:1px solid var(--line-gold);
+  }
+  .hangars-desktop__specs-title{
+    /* Matches .contact-overlay__eyebrow's bump -- both are the same "small
+       sub-label under a bigger headline" role, sized off each other. */
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(1.25rem,1.3vw,1.65rem);line-height:1.3;
+    color:var(--gold-light);margin:0 0 8px;
+  }
+  .hangars-desktop__specs-col ul{
+    list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;
+  }
+  .hangars-desktop__specs-col li{
+    /* --on-dark, not --on-dark-soft -- same white-vs-gold fix: this list
+       sits under the gold-light spec-title above it, on the same
+       .hangars-desktop background as the rest of the deck's dark panels.
+       Sized up along with the rest of this panel now that it has a full
+       row to itself instead of a narrow shared strip; the row is now wide
+       enough (43% vs. take five's ~30%) that these short phrases wrap to a
+       second line only on the very narrowest desktop widths, instead of
+       routinely, which is what let this list grow taller than its cell
+       and clip on a narrow laptop screen -- min-width/min-height:0 on the
+       cell and row above also make sure a genuine worst case clips inside
+       its own box instead of spilling into the fixed corner controls. */
+    font-family:'Jost',sans-serif;font-size:clamp(0.95rem,1vw,1.15rem);
+    letter-spacing:0.01em;line-height:1.45;text-transform:uppercase;
+    color:var(--on-dark);
+  }
+  /* Short-height tightening: the specs column clips inside its own cell
+     (overflow:hidden, by design -- see the comment above) rather than
+     spilling into the fixed corner controls, but raising this list's floor
+     size alongside the rest of the site made that worst case trigger at
+     much more ordinary short-laptop heights, not just extreme ones.
+     Tighten spacing hard first; only pull the font size back down at the
+     very shortest heights, and only partway -- to 0.85rem/13.6px, well
+     above the old, illegibly-small 0.68rem/10.9px floor this was fixed
+     from. Placed after every base rule above so these win the cascade. */
+  @media (max-height:1000px){
+    .hangars-desktop__specs-panel{ padding:8px clamp(14px,2vw,28px); gap:clamp(10px,1.4vw,20px); }
+    .hangars-desktop__specs-title{ margin:0 0 4px; }
+    .hangars-desktop__specs-col ul{ gap:2px; }
+    .hangars-desktop__specs-col li{ line-height:1.2; }
+  }
+  @media (max-height:820px){
+    .hangars-desktop__specs-panel{ padding:2px clamp(14px,2vw,28px); }
+    .hangars-desktop__specs-col li{ font-size:0.85rem; line-height:1.15; }
+  }
+  /* Width companion to the max-height tightening above. The bottom row's
+     three photo cells are a fixed 22% each (66% total), so the specs
+     panel's remaining ~34% shrinks in lockstep with the viewport itself --
+     on a real laptop window or tablet (roughly 900-1180px wide, still well
+     above the 700px mobile cutover) each of its two flex columns was down
+     to ~140px, too narrow for phrases like "Glass-front mezzanine" to wrap
+     at more than one word per line (confirmed via screenshot: it collapsed
+     into a single-word-per-line ladder). Two changes, both scoped to this
+     panel only -- the photo grid and every other slide keep their exact
+     large-desktop proportions: shrink the photo cells a little to give the
+     panel more real width, and stack its two spec columns instead of
+     sitting them side by side, so each gets that full width instead of
+     half of it. Font-size/line-height/padding borrow the same values the
+     max-height rule above already uses, since it's the identical "list is
+     taller than its box" problem, just triggered by width instead of
+     height here. */
+  @media (max-width:1180px){
+    .hangars-desktop__row--bottom{ grid-template-columns:19% 19% 19% 1fr; }
+    .hangars-desktop__specs-panel{
+      flex-direction:column; padding:2px clamp(14px,2vw,28px);
+      gap:clamp(4px,1vw,10px);
+    }
+    .hangars-desktop__specs-col + .hangars-desktop__specs-col{
+      padding-left:0; border-left:none;
+      padding-top:clamp(4px,1vw,10px); border-top:1px solid var(--line-gold);
+    }
+    .hangars-desktop__specs-title{ margin:0 0 2px; }
+    .hangars-desktop__specs-col ul{ gap:1px; }
+    .hangars-desktop__specs-col li{ font-size:0.8rem; line-height:1.12; }
+  }
+
+  /* --- Desktop Contact (the deck's closing slide): adds a closing line
+         above the existing buyer-opportunities contact block. The panel
+         behind this text is a flat colour baked into the right ~49.5% of
+         slide-10.jpg (photo cuts off, flat fill from there to the edge --
+         same construction as the Masterplan/Floorplans panels below).
+         That baked fill happened to be cream, which is why this block used
+         to run --on-light/--gold text -- but Masterplan and Floorplans'
+         own baked panels are actually dark (var(--stage), not cream), and
+         so is this same slide's own .contact-mobile__panel just below.
+         Cream was the odd one out, and gold-light (the shade every other
+         gold headline/quote in the deck uses) reads as washed-out and
+         barely-legible on it, which is what forced this block onto plain
+         --gold in the first place -- a visibly duller, more mustard tone
+         than the rest of the deck's brighter champagne gold, flagged as
+         "different yellow" on the closing slide. Fixed at the source: a
+         live .contact-overlay__panel-bg now paints that same region
+         var(--stage) instead, so this block can use the same on-dark/
+         gold-light tokens (and the same contrast) as literally everywhere
+         else, including its own mobile version right below. The old baked
+         panel also had Chris's phone number flattened into the image; as
+         live text with no phone number in it at all, there is nothing left
+         to cover up or redact. Lives inside .slide-image-button so it's
+         hidden on mobile for free; mobile keeps its own .contact-mobile
+         markup. --- */
+  .contact-overlay{
+    /* Bounded to the actual dark panel (left:50.5% to the edge, matching
+       .contact-overlay__panel-bg exactly) rather than spanning the whole
+       slide and relying on justify-content:flex-end + a content box sized
+       to match the panel's width -- that trick only centers content
+       correctly when the box is uncapped; here .contact-overlay__content
+       keeps its max-width cap (this is real flowing prose, unlike
+       Ownership's short hard-broken lines, so it still needs one to avoid
+       one giant line of text), and a capped box under flex-end just sits
+       flush against the outer edge instead of centered. Constraining the
+       container to the panel's own bounds and centering within THAT
+       works at any width, capped or not. */
+    /* left:49.8%, not the photo's exact measured split (50.5%) -- the
+       source photo's bright sky/chrome highlights bleed out to about
+       50.3%, so the dark overlay below (which shares this same left bound)
+       left a 2-3px sliver of that original bright pixel data exposed right
+       at the seam, reading as a stray white line/cropping mistake. Starting
+       the dark fill slightly earlier absorbs that sliver completely; the
+       extra trimmed strip of photo is a sliver of plain sky, imperceptible. */
+    position:absolute;top:0;bottom:0;left:49.8%;right:0;z-index:2;
+    display:flex;align-items:center;justify-content:center;
+    pointer-events:none;
+  }
+  .contact-overlay__panel-bg{
+    /* left:0, not 50.5% -- .contact-overlay itself is now bounded to the
+       panel's bounds (left:50.5%;right:0, see above), so this background
+       only needs to fill ITS parent's full box, not re-offset within it.
+       Leaving the old left:50.5% here (a leftover from when .contact-overlay
+       spanned the whole slide) pushed the dark fill to only the right ~25%
+       of the panel, leaving the baked cream panel from the source photo
+       showing through in between -- the two-tone seam bug. */
+    position:absolute;inset:0;z-index:0;background:var(--stage);
+  }
+  .contact-overlay__content{
+    /* Same optical-centering nudge as Opportunity/Floorplans -- see that
+       comment on .opportunity-overlay__content. Eased back from -110px to
+       -85px (and the tiers below eased with it) -- with body copy back to
+       its original size, the old -110px shift was leaving as little as
+       16-23px of clearance under the nav at common sizes like 1600x900 and
+       1920x1080, closer to the nav than copy should ever sit. There's
+       ample room below at every size, so a smaller upward shift buys real
+       top clearance without the block reading low.
+       Eased again from -85px to -45px (and the tiers below with it) once
+       the inquiry form was added -- the block is taller now, so the old
+       -85px lift pinned it up near the nav and left 150-200px of dead
+       panel below Chris's card at common sizes, which is what actually
+       read as "tight": every gap inside the block (form rows, form-to-
+       person-card) had been tuned for the old shorter content and now
+       looked cramped next to that much unused space below. Moving the
+       block down closer to true center uses that space instead of wasting
+       it, which is what makes room to open up the internal gaps below
+       without pushing anything off the bottom of the panel. */
+    position:relative;z-index:1;
+    width:100%;max-width:var(--overlay-max-contact);text-align:center;
+    padding:0 clamp(40px,5.2vw,84px);
+    color:var(--on-dark);
+    transform:translateY(-45px);
+  }
+  /* A big upward shift is only safe once the section has enough spare
+     height above/below the block to absorb it. Same fix pattern as the
+     hero's short-viewport media query above: back the shift off further in
+     steps as height shrinks, so short laptop windows still clear the nav. */
+  @media (max-height:950px){
+    .contact-overlay__content{ transform:translateY(-25px); }
+  }
+  @media (max-height:820px){
+    .contact-overlay__content{ transform:translateY(-15px); }
+  }
+  @media (max-height:740px){
+    .contact-overlay__content{ transform:translateY(-10px); }
+  }
+  /* Width companion to the max-height tiers above -- same problem, other
+     axis. .contact-overlay is bounded to the right ~50.2% of the slide
+     (left:49.8% above), and .contact-overlay__content sits centered inside
+     THAT with its own padding on top -- so on a real laptop window or
+     tablet (roughly 900-1180px wide, still comfortably above the 700px
+     mobile cutover) the actual text column was down to ~350px. At that
+     width the eyebrow line, quote and buyer-opportunities copy all wrap to
+     extra lines, and the whole block -- vertically centered in a fixed
+     100svh slide -- grew taller than its box and clipped at the top
+     (confirmed via screenshot: "In life, you will be" was cut off, only
+     "remembered for a lot of things" stayed on screen). Fix at the source:
+     give the text panel more of the slide's width here (the right side was
+     always a flat CSS fill, not baked into the photo -- see
+     .contact-overlay__panel-bg's comment -- so there's no photo seam to
+     keep aligned) rather than continuing to shrink type into an
+     ever-narrower column. min-width:701px scopes this to desktop only;
+     mobile has always used its own separate .contact-mobile markup below. */
+  @media (min-width:701px) and (max-width:1180px){
+    .contact-overlay{ left:36%; }
+    .contact-overlay__content{ padding:0 clamp(24px,4vw,60px); }
+    .contact-overlay__quote-eyebrow{ font-size:clamp(1.05rem,1.6vw,1.4rem); }
+  }
+  .contact-overlay__quote-eyebrow{
+    /* Plain on-dark, matching the "In life..." line's mobile treatment's
+       intent -- this sets up the quote below as the one gold moment, the
+       same one-white/one-gold pairing used for the Ownership lines. */
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    text-transform:uppercase;letter-spacing:0.08em;line-height:1.5;
+    /* A notch above --text-body-sm -- matches the rest of the deck's overlay
+       body copy in spirit, but this whole block was asked to read bigger
+       than its neighbors, not just moved up. */
+    font-size:clamp(1.3rem,1.4vw,1.75rem);color:var(--on-dark);margin:0;
+  }
+  .contact-overlay .rule{ margin:24px auto; }
+  .contact-overlay__quote{
+    /* gold-light, same as .contact-mobile__quote and every other headline/
+       quote in the deck -- now that the panel behind it is dark, gold-light
+       holds full contrast here too instead of washing out. Sized up from
+       the deck's other closing italic gold lines (--text-body scale) since
+       this block specifically was asked to read bigger. */
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+    font-size:clamp(1.65rem,2vw,2.5rem);line-height:1.45;color:var(--gold-light);margin:0;
+  }
+  .contact-overlay__divider-full{
+    height:1px;background:var(--line-gold);margin:40px 0;
+  }
+  .contact-overlay__eyebrow{
+    /* "Buyer Opportunities" -- gold-light, matching every other section
+       eyebrow/headline in the deck now that this sits on the same dark
+       panel colour as the rest of them. Sized a step above the deck's
+       other sub-labels (e.g. .hangars-desktop__specs-title) since this
+       whole block was asked to read bigger, not just move up. */
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    text-transform:uppercase;letter-spacing:0.1em;
+    font-size:clamp(1.35rem,1.45vw,1.85rem);color:var(--gold-light);margin:0;
+  }
+  .contact-overlay__copy{
+    /* var(--text-body), not the old clamp(1.35rem,1.5vw,1.9rem) -- that was
+       nearly double every other panel's plain body copy (Ownership's
+       equivalent line, .ownership-overlay__highlight, sits at var(--text
+       -body) = 0.92-1.05rem) and, as a full two-line sentence rather than
+       a short label, made the difference obvious rather than a subtle
+       accent (reported: "this copy is much bigger than the other pages").
+       The quote above it and "Buyer Opportunities" below keep their own
+       larger sizes -- those are this panel's two intentional gold
+       moments, matched to Ownership's closing quote and other section
+       eyebrows respectively -- only this plain white sentence was out of
+       scale with its counterparts elsewhere in the deck. */
+    font-family:'Cormorant Garamond',serif;font-size:var(--text-body);
+    line-height:1.6;color:var(--on-dark);margin:18px 0 0;
+  }
+  /* The inquiry form (.contact-form, shared by desktop .contact-overlay and
+     mobile .contact-mobile) that used to live here was removed -- see the
+     comment on .contact-overlay__copy in the Contact section markup. Chris
+     Beane's card is the only contact affordance now. */
+  .contact-overlay__person{
+    /* justify-content:center + person-text no longer flex-grow (below) --
+       otherwise this row's text column would stretch to fill the content
+       box's full width regardless of centering, since flex:1 1 auto lets
+       it grow to fill available space. Content box itself is centered now
+       (see .contact-overlay__content); this row needs the same treatment
+       so the little avatar+name cluster sits centered under the centered
+       prose above it instead of stretching edge to edge underneath it. */
+    display:flex;align-items:center;justify-content:center;gap:22px;margin-top:30px;
+  }
+  .contact-overlay__headshot{
+    width:64px;height:64px;border-radius:50%;object-fit:cover;flex:0 0 64px;display:block;
+    border:2px solid var(--gold);box-shadow:0 0 0 1px rgba(179,146,78,0.25);
+  }
+  .contact-overlay__person-divider{
+    width:1px;align-self:stretch;background:var(--line-gold);flex:0 0 1px;
+  }
+  /* text-align:left -- the parent content box is centered, but name/role/
+     email read better left-aligned against the avatar next to them than
+     each centered on its own independent width. */
+  .contact-overlay__person-text{ flex:0 1 auto; min-width:0; text-align:left; }
+  .contact-overlay__name{
+    font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:0.06em;
+    text-transform:uppercase;font-size:clamp(1.3rem,1.4vw,1.75rem);color:var(--on-dark);margin:0;
+  }
+  .contact-overlay__role{
+    /* gold-dim, matching .contact-mobile__role exactly -- not on-dark-soft,
+       which is the white-vs-gold pairing this deck avoids: on-dark-soft
+       sitting this close to the gold-light quote/eyebrow above would read
+       as a mismatched dim white rather than a deliberate accent. */
+    font-family:'Jost',sans-serif;font-size:clamp(0.85rem,0.9vw,1.05rem);
+    letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin:4px 0 0;
+  }
+  .contact-overlay__person-rule{
+    width:100%;height:1px;background:var(--line-gold);margin:12px 0;
+  }
+  .contact-overlay__email{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.2vw,1.4rem);
+    color:var(--on-dark);margin:0;pointer-events:auto;
+  }
+  .contact-overlay__email a{ color:inherit; }
+  /* Short-height tightening, added once the site-wide floor (min-clamp)
+     values were raised alongside the ceilings -- the block is now taller
+     at every width, not just wide ones, so the existing transform-only
+     tiers above are no longer enough on their own at short laptop window
+     heights. Placed after every base .contact-overlay__* rule above so
+     these actually win the cascade. */
+  @media (max-height:820px){
+    .contact-overlay .rule{ margin:12px auto; }
+    .contact-overlay__divider-full{ margin:20px 0; }
+    .contact-overlay__copy{ margin-top:10px; }
+    .contact-overlay__person{ margin-top:16px; }
+  }
+  @media (max-height:700px){
+    .contact-overlay .rule{ margin:6px auto; }
+    .contact-overlay__divider-full{ margin:10px 0; }
+    .contact-overlay__copy{ margin-top:6px; }
+    .contact-overlay__person{ margin-top:8px; }
+  }
+
+  /* ============ MILESTONES ============ */
+  .milestone-photo__title{font-family:'Cormorant Garamond',serif;font-size:var(--text-title-mobile);color:var(--gold-light);}
+  /* on-dark, not the dimmer on-dark-soft/on-dark-faint used before -- same
+     white-vs-gold fix as Ownership/Contact: the title above is the one
+     gold moment in this caption, so the body and footnote below it read
+     clearly as white instead of another, dimmer shade of gold-adjacent
+     tan. */
+  .milestone-photo__body{margin-top:12px;color:var(--on-dark);font-size:var(--text-body-mobile);line-height:1.7;}
+  .milestone-photo__note{margin-top:16px;font-style:italic;color:var(--on-dark);font-size:0.92rem;border-top:1px solid var(--line-on-dark);padding-top:14px;}
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--ink);color:var(--on-dark-soft);
+    padding:70px clamp(20px,6vw,80px) 40px;
+    border-top:1px solid var(--line-on-dark);
+  }
+  .footer-top{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;
+    padding-bottom:46px;border-bottom:1px solid var(--line-on-dark);
+  }
+  .footer-mark{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--on-dark);}
+  .footer-addr{margin-top:10px;font-size:0.98rem;line-height:1.7;}
+  .footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:20px;}
+  .footer-links{display:flex;gap:34px;flex-wrap:wrap;}
+  .footer-links a{font-family:'Jost',sans-serif;font-size:var(--text-nav);letter-spacing:0.16em;text-transform:uppercase;color:var(--on-dark-soft);}
+  .footer-links a:hover{color:var(--on-dark);}
+  .footer-follow{display:flex;align-items:center;gap:16px;}
+  .footer-follow span{
+    font-family:'Jost',sans-serif;font-size:var(--text-nav);letter-spacing:0.16em;text-transform:uppercase;color:var(--on-dark-faint);
+  }
+  .footer-follow a{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;color:var(--on-dark-soft);transition:color .25s var(--ease);
+  }
+  .footer-follow a:hover{color:var(--gold);}
+  .footer-follow svg{width:15px;height:15px;display:block;fill:none;stroke:currentColor;stroke-width:1.3;}
+  @media (max-width:700px){
+    .footer-top{align-items:flex-start;}
+    .footer-right{align-items:flex-start;}
+  }
+  .footer-bottom{
+    margin-top:30px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.04em;color:var(--on-dark-faint);
+  }
+
+  /* ============ RESPONSIVE GLOBAL ============ */
+  /* This breakpoint was 900px; between ~940-1080px the full nav (mark +
+     4 links + button, all in one row) ran out of room and the last link
+     started overlapping the button. Moving the switch-to-hamburger point
+     out to 1180px keeps the full nav only where it actually fits, and
+     everything below it already uses the hamburger/.mobile-menu built for
+     narrow widths. */
+  @media (max-width:1180px){
+    .nav__links{display:none;}
+    .nav__burger{display:block;}
+    .nav__right .btn{display:none;}
+  }
+  /* Nav bar: desktop-only bump. With the hero's title/CTAs now much bigger,
+     the header's links and "Request Information" button read as tiny by
+     comparison. This only applies once the full nav row is actually showing
+     (>1180px -- the breakpoint above already swaps to the hamburger +
+     .mobile-menu below that, which has its own sizing and is untouched). */
+  @media (min-width:1181px){
+    .nav__links a{ font-size:0.85rem; letter-spacing:0.18em; }
+    .nav__right .btn{ font-size:0.85rem; padding:18px 36px; }
+  }
+  @media (max-width:600px){
+    .hero__ctas{flex-direction:column;width:100%;margin-top:40px;gap:14px;}
+    .hero__ctas .btn{justify-content:center;}
+  }
+  /* Hero: narrow-phone polish. The coordinate line's wide letter-spacing
+     is tuned for desktop; on phones under ~380px it can crowd the edges,
+     so it steps down slightly here rather than wrapping to two lines. */
+  @media (max-width:380px){
+    .hero__coords{font-size:0.66rem;letter-spacing:0.2em;}
+  }
+
+  /* ============ DECK MECHANICS (nav, slide chrome) ============ */
+  /* scroll-snap-type used to force each .deck-slide to lock to a full
+     screen on desktop (mandatory + scroll-snap-stop:always below). Removed
+     at the user's request after repeated, confirmed-live reports of it
+     resting mid-transition between two slides on real Safari/Mac -- neither
+     the overscroll-behavior-x fix nor the scrollend-based drift-correction
+     JS (see the old comment block right before the deck-chrome IIFE further
+     down, now removed) fully resolved it. Desktop now scrolls freely, same
+     as mobile already did (see the max-width:700px override below, now
+     redundant but left as an explicit statement of intent). Every
+     .deck-slide still stays exactly height:100svh (see below), so it still
+     claims one full screen while you scroll through it -- there's just no
+     forced snap/lock anymore. */
+  html{scroll-padding-top:0;}
+  /* body's background/color are set once, in the TOKENS block's base body{}
+     rule above (the deck's other stylesheet block) -- not redeclared here. */
+  .nav{
+    display:grid;
+    grid-template-columns:minmax(180px,1fr) auto minmax(180px,1fr);
+    column-gap:clamp(18px,2.5vw,40px);
+  }
+  .nav__mark{
+    justify-self:start;gap:.34em;white-space:nowrap;letter-spacing:.13em;
+  }
+  .nav__mark span{
+    color:var(--on-dark-soft);font:inherit;font-size:.78em;letter-spacing:.16em;
+  }
+  .nav__links{justify-self:center;gap:clamp(18px,2vw,32px);}
+  .nav__right{justify-self:end;}
+  .hero{min-height:100svh;}
+  /* Full width, no cap -- was max-width:1800px + margin:0 auto, which
+     letterboxed the deck against its own dark background on any monitor
+     wider than that (a visible "border" down both sides on an ultra-wide
+     screen). Reported directly as unwanted: the preference is for desktop
+     to fill the entire window, matching the full-bleed treatment already
+     used within each slide. Every size in this deck is set with clamp()
+     (type, spacing, panel widths as %), and clamp()'s own upper bound is
+     what stops text from growing without limit on a very wide screen --
+     the max-width cap was never actually load-bearing for that; removing
+     it just stops the deck from stopping short of the window. */
+  .deck{position:relative;background:var(--stage);}
+  .deck-slide{
+    position:relative;
+    width:100%;
+    /* height:100svh + full-bleed cover (below) is the confirmed direction --
+       "no weird borders on the outside, everything just snaps into place."
+       An aspect-ratio:16/9 box was tried instead (briefly, mid-session) and
+       reverted: on any real window that isn't exactly 16:9 -- a 16:10
+       laptop, anything not ultra-wide -- that box falls short of the actual
+       viewport height, leaving a gap where the next slide peeks through
+       right after snapping. 100svh removes that gap entirely: every slide
+       always claims exactly one full screen. The trade-off is object-fit
+       has to crop instead of letterbox on a non-16:9 window -- fine for
+       photos, but it once hid real content on the Floorplans slide (see the
+       object-fit:contain override on that slide specifically, below). */
+    height:100svh;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    background:var(--stage);
+  }
+  .deck-slide.light-slide{background:var(--panel-light);}
+  /* Floorplans only, overriding the shared .light-slide rule above (higher
+     specificity via the #id). A flat fallback color here isn't enough:
+     slide-7.jpg is a single WIDE image (aspect ~2.1) that's always taller,
+     relative to its width, than any realistic browser window -- object-fit
+     :contain (see #floorplans .slide-image below) therefore always letter-
+     boxes it top and/or bottom, by an amount that grows as the window gets
+     further from that 2.1 ratio (most at 16:10, e.g. 1440x900/1512x982).
+     That letterbox strip runs the FULL width of the slide, but the photo
+     itself is two-tone at every row -- a flat dark panel baked into its
+     left ~35% (measured against slide-7.jpg directly: the panel/drawing
+     seam falls at x=664 of 1895px, 35.04%), cream drawing paper the rest.
+     A single flat fallback color can only ever match one half: plain cream
+     (#e8dbc8, tracking slide-7.jpg's own drawing-paper tone -- see the
+     masterplan-desktop__photo comment above for why this was #f5efe4 and
+     changed: slide-7.jpg was re-color-matched to the same warm paper tone
+     as masterplan-diagram.jpg/floorplans-topfloor.jpg, so its letterbox
+     fallback moved with it) blends invisibly over the drawing on the
+     right, but butts straight up against the dark panel on the left with
+     an abrupt seam -- exactly the "different background" seam reported
+     right where this section meets Masterplan above it.
+     Split at 36%, not the photo's own ~35.04% -- 36% is the TRUE design
+     width (matching Masterplan's live 36% flex split; see .seam-align--
+     floorplans below, which already bridges the photo's slightly-narrow
+     baked edge out to that same 36% with its own var(--stage) fill and
+     gold divider). Matching the photo's raw 35.04% here instead would
+     undercut that patch -- the letterbox band would then go dark->cream
+     right where the photo itself is still dark (up to 36%), showing as a
+     second, misaligned pale edge just left of the patch's real one
+     (reported directly: "see the line"). Splitting at 36% keeps this
+     fallback and the patch drawing the same line in the same place, so
+     whatever sliver of letterbox shows, top or bottom, is seamless with
+     both the photo and the patch at any letterbox size. */
+  #floorplans.light-slide{
+    background:linear-gradient(to right, var(--ink) 0 36%, #e8dbc8 36% 100%);
+  }
+  /* Boundary hairline between every consecutive pair of slides. Opacity
+     was originally .34 -- fine against a mid-tone photo, but nearly
+     invisible against this deck's near-black panels (rgba gold at that
+     strength barely lifts the panel's own dark value) and reduced to a
+     faint one-pixel blend against a bright cream panel like Masterplan's,
+     so at exactly the seams where a dark photo (Lakes) meets a light
+     panel (Masterplan) the line read as absent and the cut between the
+     two looked raw/accidental rather than a designed boundary (reported:
+     "the white background doesn't fill the page" / "can't see the
+     line"). Raised to full gold + the same soft glow already used on the
+     vertical panel/photo seam inside Masterplan (.masterplan-desktop
+     __panel::after below) so this reads as one consistent accent line
+     treatment, visible against both dark and light neighbors. */
+  .deck-slide:not(:last-child)::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;z-index:3;
+    height:1px;background:var(--gold);
+    box-shadow:0 0 10px 0 rgba(179,146,78,0.55);pointer-events:none;
+  }
+  .slide-image-button{
+    width:100%;height:100%;padding:0;margin:0;border:0;
+    position:relative;z-index:1;display:grid;place-items:center;background:transparent;
+  }
+  .slide-image{
+    /* cover, not fill -- see the .deck-slide comment above: the slide box
+       is full-viewport (100svh), not locked to 16:9, so on a non-16:9
+       window "fill" would stretch these baked photos out of proportion.
+       "cover" crops instead, the same trade-off object-fit:cover already
+       makes everywhere else in this deck (hero, the Hangars/Masterplan
+       photo cells). Most of these baked slides can afford it -- their live
+       text overlay is sized as a percentage calibrated to a flat-colour
+       panel in the photo, and cropping just shifts that panel's edge by a
+       few percent. Floorplans is the one exception (its content is two
+       whole plan drawings, not a flat panel) and gets object-fit:contain
+       instead, scoped to it alone -- see #floorplans .slide-image below. */
+    width:100%;height:100%;object-fit:cover;object-position:center center;display:block;
+    opacity:1;transform:none;
+  }
+  /* --- Floorplans only: contain, not cover. A tall/narrow browser window
+         crops a cover-fit image from the vertical center outward, and on
+         this specific photo that center band is blank cream between the
+         two plan drawings -- crop far enough and BOTH plans disappear,
+         leaving only that blank gap on screen (reported: the slide looked
+         totally empty). Floorplans is already a light-slide (background:
+         var(--panel-light), the same warm cream as the photo's own
+         margins), so object-fit:contain here never shows a visible bar --
+         any letterboxing lands in a cream-on-cream area indistinguishable
+         from the photo itself. Every other slide keeps cover (comment
+         above); this is the one slide where crop can hide real content. */
+  #floorplans .slide-image{ object-fit:contain; }
+  .slide-copy{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
+  .deck-ui{
+    /* Plain clamp() offset from the viewport edge -- .deck used to cap at
+       max-width:1800px and letterbox on wide screens, so this tracked the
+       deck's own (inset) edge instead via a max()/calc() pair. The deck is
+       full-width now (see .deck above), so the viewport edge and the
+       deck's edge are the same thing again; the calc() half was removed
+       along with it. */
+    position:fixed;z-index:190;right:clamp(16px,2.5vw,38px);top:50%;
+    transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:13px;
+    opacity:0;pointer-events:none;transition:opacity .35s var(--ease);
+  }
+  body.deck-entered .deck-ui{opacity:1;pointer-events:auto;}
+  .deck-dot{
+    width:7px;height:7px;padding:0;border-radius:50%;border:1px solid rgba(239,230,212,.65);
+    background:rgba(var(--ink-rgb),.35);cursor:pointer;transition:transform .3s var(--ease),background .3s var(--ease);
+  }
+  .deck-dot.active{background:var(--gold-light);transform:scale(1.55);}
+  .deck-counter{
+    /* A flat pale color used to sit here with just a drop-shadow for
+       contrast -- fine against the dark photo/panel every slide but two
+       has in this corner, but Masterplan and Floorplans put their light
+       cream blueprint photo here instead, and on mobile the freely-
+       scrolling layout can put almost anything under this fixed corner
+       (e.g. Hangars' cream architectural sketch) -- in both cases the pale
+       text nearly disappeared. A small dark scrim behind the text
+       guarantees the same light-on-dark contrast no matter what image is
+       under it, on every slide, instead of needing to know the color of
+       whatever happens to be there. */
+    position:fixed;z-index:190;right:clamp(12px,2vw,32px);bottom:clamp(16px,2.6vw,34px);
+    color:var(--on-dark);font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.22em;
+    opacity:0;transition:opacity .35s var(--ease);pointer-events:none;
+    padding:6px 12px;border-radius:20px;background:rgba(20,17,13,.4);
+    backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  }
+  body.deck-entered .deck-counter{opacity:1;}
+  .deck-instruction{
+    position:fixed;z-index:190;left:clamp(18px,2.7vw,42px);bottom:clamp(16px,2.6vw,34px);
+    color:rgba(239,230,212,.78);font-family:'Jost',sans-serif;font-size:.6rem;
+    letter-spacing:.18em;text-transform:uppercase;opacity:0;transition:opacity .35s var(--ease);
+    /* .deck-counter (bottom-right) already had a shadow for this same reason;
+       this one didn't, and on Contact -- whose bottom-left corner is the
+       brightest part of the jet-engine photo, not a darker sky/hangar like
+       every other slide's corner -- the pale text all but disappeared into
+       it. A slightly heavier double shadow (vs. the counter's single one)
+       holds up against that near-white corner without looking like a harsh
+       outline on the deck's darker corners. */
+    text-shadow:0 1px 3px rgba(0,0,0,.85), 0 0 10px rgba(0,0,0,.5);
+  }
+  body.deck-entered .deck-instruction{opacity:1;}
+  @media (max-width:1180px){
+    .nav{display:flex;}
+  }
+  @media (max-width:700px){
+    /* Scroll-snap was already off on mobile before it was removed from
+       desktop too (see the DECK MECHANICS block above) -- mobile sections
+       flow at their own natural, often multi-screen height, so there's no
+       "one screen per section" to snap to. This rule is now a no-op (there's
+       no snap-type left anywhere to turn off) but left in place as a plain
+       statement that mobile is deliberately free-flowing. */
+    /* Every slide now has a live mobile layout (see the LIVE MOBILE
+       LAYOUTS block below) instead of one flattened, fixed-height image,
+       so slides just flow at their natural (often multi-screen) height
+       here rather than being locked to 100svh with a letterboxed image. */
+    .deck-slide{height:auto;min-height:0;padding:0;aspect-ratio:auto;}
+    .deck-slide .slide-image-button{display:none;}
+    .deck-slide > p.slide-copy{display:none;} /* long alt copy: superseded by real visible text */
+    .deck-ui,.deck-instruction{display:none;}
+    .deck-counter{right:14px;bottom:12px;font-size:.58rem;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .slide-image{opacity:1;transition:none;}
+  }
+
+  /* ============================================================
+     CINEMATIC REFINEMENT LAYER
+     Restrained, editorial motion added on top of the existing deck.
+     Nothing here touches the source artwork; it only adds a quiet
+     fade/settle to the pages and, on a handful of slides where the
+     baked panel is a single flat colour, recreates the gold headline
+     as live type over a pixel-matched cover so the reveal can play.
+     ============================================================ */
+  /* --- Hero copy recedes gently the moment the user starts to leave it --- */
+  .hero__content,.hero__scroll{
+    transition:opacity .7s ease;
+  }
+  body.leaving-hero .hero__content,
+  body.leaving-hero .hero__scroll{
+    opacity:0;
+  }
+
+  /* --- Floorplans' dark panel is very slightly narrower than Masterplan's
+         immediately above it (baked-photo boundary at ~35.19% of the frame
+         vs. Masterplan's live 36% flex split), which reads as both a jog
+         in the vertical divider and a color mismatch right at the page
+         seam -- Masterplan's line is a live, glowing gold divider, while
+         Floorplans had no line there at all, just a hard cut straight to
+         the baked panel's own slightly-off dark tone. This patch now does
+         two things instead of one: (1) fills the sliver between the baked
+         boundary and Masterplan's true 36% line with var(--ink) --
+         Masterplan's own panel colour, not a one-off pixel sample of the
+         baked photo -- so the tone right at the seam matches exactly, and
+         (2) draws its own glowing gold divider at that same 36% edge via
+         ::after, identical to .masterplan-desktop__panel::after, so both
+         slides show the same line instead of one having it and one not.
+         var(--ink), not the var(--stage) this rule used originally --
+         Masterplan's own panel was itself moved from --stage to --ink
+         later in the same pass that matched its photo tone to Floorplans'
+         (see .masterplan-desktop above), so --stage here had gone stale
+         and was reading as its own faint extra stripe against --ink on
+         both sides of it. left widened from 35.13% to 34.85% -- slide-
+         7.jpg's own panel/drawing edge is a near-black-to-near-white cut
+         in one source pixel, and JPEG compression rings at hard edges
+         like that: measured directly (1440px wide render, y=150) it's
+         dark ink through x=502, a 2px bright overshoot at x=503-505 (the
+         ringing), THEN back to dark until this patch's gold line. 35.13%
+         landed just past that overshoot, so the overshoot itself was
+         still showing through, uncovered, as its own thin pale sliver
+         just left of this patch (reported as "the line" / a second edge)
+         -- widened to start before it so the patch's own --ink covers the
+         overshoot too. Right edge held at 36% (left+width), so the gold
+         divider's position is unchanged. Position/width will need re-
+         checking if slide-6.jpg or slide-7.jpg is ever re-exported. --- */
+  .seam-align--floorplans{
+    position:absolute; z-index:3; top:0; height:100%;
+    left:34.85%; width:1.15%;
+    background:var(--ink);
+    opacity:0; transition:opacity 1s var(--ease);
+    pointer-events:none;
+  }
+  .seam-align--floorplans::after{
+    content:'';position:absolute;top:0;right:0;bottom:0;width:1px;
+    background:var(--gold);box-shadow:0 0 14px 0 rgba(179,146,78,0.6);
+  }
+  .deck-slide.revealed .seam-align--floorplans{ opacity:1; }
+  @media (max-width:700px){ .seam-align--floorplans{ display:none; } }
+  @media (prefers-reduced-motion:reduce){ .seam-align--floorplans{ opacity:1; transition:none; } }
+
+  /* --- Every portfolio page: a quiet ~1.5% settle, once. This used to also
+         fade opacity 0->1 over 1s, but scroll-snap doesn't jump instantly
+         between slides -- a trackpad/smooth scroll can sit mid-snap for a
+         moment with the incoming slide partly on screen while its image is
+         still transparent, exposing the flat --panel-light placeholder
+         underneath. Right at the Masterplan/Floorplans seam that placeholder
+         (a cooler, flatter cream) reads as a visible color mismatch against
+         Masterplan's warmer photographed cream -- reported as "these pages
+         are different colors." Dropping the opacity fade (keeping just the
+         zoom-settle) means the actual photo is always what's on screen, so
+         the two slides' real cream tones -- which are already close --
+         are what meet at the seam, never the placeholder. --- */
+  .slide-image{
+    transform:scale(1.015);
+    transition:transform 1.05s var(--ease);
+  }
+  .deck-slide.revealed .slide-image{
+    transform:scale(1);
+  }
+
+  /* --- Opportunity picks up a soft echo of the hero's scrim so the
+         hand-off from video to first page doesn't read as a hard cut --- */
+  #opportunity{ position:relative; }
+  #opportunity::before{
+    content:"";
+    position:absolute; inset:0; z-index:2; pointer-events:none;
+    background:linear-gradient(180deg, rgba(9,7,5,.5) 0%, rgba(9,7,5,0) 26%);
+    opacity:0;
+    transition:opacity 1s ease;
+  }
+  #opportunity.revealed::before{ opacity:1; }
+
+  /* --- Reduced-motion: fall back to the plain, unanimated page. --- */
+  @media (prefers-reduced-motion:reduce){
+    .slide-image{ opacity:1; transform:none; transition:none; }
+    #opportunity::before{ transition:none; }
+    .hero__content,.hero__scroll{ transition:none; }
+  }
+
+  /* ============================================================
+     LIVE MOBILE LAYOUTS -- ALL NINE PORTFOLIO SLIDES
+     Below 700px, every flattened deck slide (a baked image + hidden alt
+     copy) is swapped for a real, stacked mobile page built from the same
+     photos, diagrams and copy as the source slide -- live type and
+     cropped photos instead of one panel. Desktop is untouched: it still
+     shows the original slide-N image exactly as before (the generic
+     ".deck-slide .slide-image-button{display:none}" rule a little further
+     up only applies at this breakpoint). Because this content generally
+     runs taller than one phone screen, these sections also flow at their
+     natural height here rather than the fixed "one slide, one screen"
+     sizing the deck used before every page had a live mobile version.
+     ============================================================ */
+  .opp-mobile,.hangars-mobile,.lakes-mobile,
+  .masterplan-mobile,.floorplans-mobile,.milestones-mobile,
+  .ownership-mobile,.contact-mobile{ display:none; }
+  @media (max-width:700px){
+    #opportunity::before{ display:none; } /* hero hand-off scrim was sized for the old fixed-height slide */
+
+    /* width:100% is required here, not just display:block: .deck-slide is
+       display:grid;place-items:center, and "center" (unlike the default
+       "stretch") lets a grid item shrink-wrap to its content's fit-content
+       width instead of filling the column -- which children sizing
+       themselves in % (the photos, panels) can settle at different widths
+       depending on image-load timing, showing up as an intermittent
+       centered column with cream gutters on either side instead of a
+       reliable full-bleed section. Pinning width:100% here removes that
+       ambiguity for every mobile section at once. */
+    .opp-mobile,.hangars-mobile,.lakes-mobile,
+    .masterplan-mobile,.floorplans-mobile,.milestones-mobile,
+    .ownership-mobile,.contact-mobile{ display:block; width:100%; }
+
+    /* --- Dark background belongs on the whole section wrapper, not just
+           its "__top" text block: .opp-mobile and .hangars-mobile already
+           did this correctly. Lakes, Masterplan, Floorplans, Milestones
+           and Ownership had background only on their "__top" piece, so any
+           margin between that text and the photo below it fell on the
+           plain .deck-slide background (--stage) instead -- a hair lighter
+           than --ink, which reads as a faint seam/second band
+           right where the text block ends. Setting it here once, on every
+           wrapper, removes that seam everywhere at once regardless of each
+           section's own margins. --- */
+    .lakes-mobile,.masterplan-mobile,.milestones-mobile,.ownership-mobile{
+      background:var(--ink); color:var(--on-dark);
+    }
+    .floorplans-mobile{ background:var(--ink); }
+
+    /* --- shared bits reused across several of the sections below:
+           .opp-mobile__eyebrow is the gold, tracked serif headline used
+           on nearly every page (add .cream for the white variant seen on
+           Floorplans); .mobile-sub-caps is the smaller tracked all-caps
+           sans line used for secondary copy/specs. --- */
+    .mobile-sub-caps{
+      font-family:'Jost',sans-serif; font-size:0.82rem; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--on-dark); line-height:1.9; margin:0;
+    }
+
+    .opp-mobile{
+      background:var(--ink);
+      color:var(--on-dark);
+    }
+    .opp-mobile__top{
+      padding:64px var(--mobile-gutter) 44px;
+      text-align:center;
+      display:flex;flex-direction:column;align-items:center;
+    }
+    .opp-mobile__logo{ width:52px; height:auto; margin-bottom:26px; }
+    .opp-mobile__eyebrow{
+      font-family:'Cormorant Garamond',serif; font-weight:500;
+      text-transform:uppercase; letter-spacing:0.12em;
+      font-size:clamp(1.32rem,6vw,1.6rem); line-height:1.4;
+      color:var(--gold-light); margin:0;
+    }
+    .opp-mobile__eyebrow.cream{ color:var(--on-dark); }
+    .opp-mobile__not{
+      font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400;
+      text-transform:uppercase; letter-spacing:0.08em;
+      font-size:var(--text-body-mobile); color:var(--on-dark); margin:22px 0 0;
+    }
+    .opp-mobile__top .rule{ margin:26px 0; }
+    .opp-mobile__copy{
+      /* --on-dark, not --on-dark-soft -- same white-vs-gold fix as the rest
+         of the deck: on-dark-soft is a muted tan that reads too close to
+         gold at this size. */
+      font-family:'Cormorant Garamond',serif; font-weight:400;
+      font-size:1.14rem; line-height:1.75; color:var(--on-dark);
+      margin:0; max-width:38ch;
+    }
+    .opp-mobile__copy em{ font-style:italic; color:var(--on-dark); }
+    .opp-mobile__photo{ line-height:0; }
+    .opp-mobile__photo img{ width:100%; height:auto; display:block; }
+    .opp-mobile__features{
+      list-style:none; margin:0; padding:40px var(--mobile-gutter) 56px;
+      display:flex; flex-direction:column;
+    }
+    .opp-mobile__features li{
+      display:flex; gap:18px; align-items:flex-start;
+      padding:22px 0; border-top:1px solid rgba(179,146,78,0.22);
+    }
+    .opp-mobile__features li:first-child{ border-top:none; padding-top:0; }
+    .opp-mobile__icon{
+      flex:none; width:46px; height:46px; border-radius:50%;
+      border:1px solid var(--line-gold); color:var(--gold);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .opp-mobile__icon svg{ width:22px; height:22px; }
+    .opp-mobile__f-title{
+      font-family:'Jost',sans-serif; font-weight:500; font-size:0.86rem;
+      letter-spacing:0.05em; text-transform:uppercase; color:var(--gold-light);
+      margin:6px 0 0;
+    }
+    .opp-mobile__f-body{
+      /* --on-dark, not --on-dark-soft -- headers/icons stay gold, this body
+         line reads as plain white instead of a dimmer near-gold tan. */
+      font-family:'Cormorant Garamond',serif; font-size:1.08rem; line-height:1.55;
+      color:var(--on-dark); margin:8px 0 0;
+    }
+
+    /* --- HANGARS: same specs as the hidden alt copy, restacked; the hangar
+           exterior and materials-swatches photos sit side by side below,
+           with the blueprint sketch as a full-width plate underneath. The
+           swatches + blueprint pairing used to live on its own standalone
+           Materials slide (now folded into this one); the lounge/"office"
+           photo that used to fill this second slot was dropped so those
+           real assets have room instead. --- */
+    .hangars-mobile{ background:var(--ink); color:var(--on-dark); }
+    .hangars-mobile__top{ padding:60px var(--mobile-gutter) 0; text-align:center; }
+    .hangars-mobile__top .rule{ margin:24px auto; }
+    .hangars-mobile__top .rule.small{ width:40px; margin:34px auto; }
+    .hangars-mobile__spec{ margin-top:36px; }
+    .hangars-mobile__spec-title{
+      font-family:'Cormorant Garamond',serif; font-weight:500; font-size:1.4rem;
+      color:var(--on-dark); margin:0;
+    }
+    .hangars-mobile__spec-body{
+      font-family:'Jost',sans-serif; font-size:0.76rem; letter-spacing:0.03em;
+      line-height:2; text-transform:uppercase; color:var(--on-dark-soft);
+      margin:14px auto 0; max-width:32ch;
+    }
+    /* gap breaks up the hard edge-to-edge seam between two very
+       differently-toned photos (bright daylight exterior next to the
+       materials board) -- with zero gap that seam reads like the crease
+       between two magazine pages instead of one deliberate grid.
+       aspect-ratio matches the materials-swatches photo's own proportions
+       (880:968) rather than a plain square: squaring it off was cropping
+       the top and bottom of the board noticeably tighter than the client
+       wanted (their reference shows the whole board with room to
+       breathe). Matching its native ratio here means zero crop on that
+       photo; the exterior shot picks up a little extra crop on its sides
+       instead, which it can afford (mostly sky and pavement margin). */
+    .hangars-mobile__photos{ display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:48px; background:var(--ink); overflow:hidden; }
+    /* min-width:0 -- a grid item's default min-width is auto, which for an
+       <img> can resolve to its intrinsic/aspect-ratio-driven size instead
+       of the 1fr track width, occasionally forcing this grid (and the
+       whole mobile page) wider than the viewport on some mobile browsers
+       even though width:100% is set. min-width:0 removes that floor so
+       the column actually shrinks to fit. */
+    .hangars-mobile__photos img{ width:100%; height:100%; min-width:0; aspect-ratio:880/968; object-fit:cover; display:block; }
+    /* Cream plate for the hand-drawn sketch -- full-bleed left/right (no
+       side gutter) so it reads as a photo in the deck's usual full-width
+       treatment rather than a smaller image floating in its own cream
+       margin. The side padding this used to carry left visible parchment-
+       colored whitespace framing the sketch, flagged directly as "weird
+       white space to the right and left of the image." Top/bottom padding
+       stays -- that's just breathing room between this and the photos
+       grid above / the next slide below, not the flagged issue -- and the
+       background stays var(--panel-light), close to the sketch's own
+       parchment tone, so it still reads as one plate rather than a photo
+       dropped on a mismatched backdrop. */
+    .hangars-mobile__blueprint{
+      background:var(--panel-light); margin-top:3px;
+      padding:22px 0;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .hangars-mobile__blueprint img{ width:100%; height:auto; display:block; }
+
+    /* --- LAKES: same restrained line-by-line copy as the hidden alt text,
+           ending in the gold italic pay-off, then the dock/sunset photo. --- */
+    .lakes-mobile__top{ padding:64px var(--mobile-gutter) 0; text-align:center; background:var(--ink); color:var(--on-dark); }
+    .lakes-mobile__top .rule{ margin:26px auto; }
+    .lakes-mobile__copy{
+      /* --on-dark, not --on-dark-soft -- same white-vs-gold fix as
+         Ownership/Milestones: on-dark-soft is a muted tan that reads too
+         close to gold at this size, so this body copy blended into "The
+         Lakes Region" eyebrow and "It was the freedom to fly." instead of
+         reading as a clearly different, plain white. */
+      font-family:'Cormorant Garamond',serif; font-size:1.12rem; line-height:1.75;
+      color:var(--on-dark); margin:24px auto 0; max-width:36ch;
+    }
+    .lakes-mobile__final{
+      font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.25rem;
+      color:var(--gold-light); margin:30px 0 0; line-height:1.5;
+    }
+    .lakes-mobile__photo{ margin-top:48px; line-height:0; }
+    .lakes-mobile__photo img{ width:100%; height:auto; display:block; }
+
+    /* --- MASTERPLAN: numbers pulled out as live stats for a dark panel,
+           then the site plan cropped from slide-6. Desktop uses the same
+           copy in its own ".masterplan-overlay" (see the desktop overlay
+           CSS earlier in this file) over a cleaned version of slide-6.jpg
+           -- update both if you change the wording. --- */
+    .masterplan-mobile__top{ padding:60px var(--mobile-gutter) 48px; text-align:center; background:var(--ink); color:var(--on-dark); }
+    .masterplan-mobile__top .rule{ margin:24px auto; }
+    .masterplan-mobile__top .rule.small{ width:40px; margin:34px auto; }
+    .masterplan-mobile__stat{ margin-top:40px; }
+    .masterplan-mobile__num{
+      font-family:'Cormorant Garamond',serif; font-weight:500; font-size:2.2rem;
+      color:var(--gold-light); margin:0;
+    }
+    .masterplan-mobile__num.small{ font-size:1.5rem; }
+    .masterplan-mobile__label{
+      font-family:'Jost',sans-serif; font-size:0.78rem; letter-spacing:0.16em;
+      text-transform:uppercase; color:var(--on-dark); margin:8px 0 0;
+    }
+    .masterplan-mobile__group{ margin-top:38px; }
+    .masterplan-mobile__group .masterplan-mobile__num{ margin-bottom:2px; }
+    /* Explicit --ink here, not just inherited from .masterplan-mobile's own
+       background -- matches .floorplans-mobile__photo below, which sets
+       this directly on its own photo wrapper rather than relying on the
+       parent. Same fix as the desktop masterplan/floorplans panel-color
+       match, applied so the two sections' image containers are pinned to
+       the identical token on mobile too, not just matching by inheritance. */
+    .masterplan-mobile__photo{ background:var(--ink); }
+    .masterplan-mobile__photo img{ width:100%; height:auto; display:block; }
+
+    /* --- FLOORPLANS: gold "Designed for the aircraft," cream "Built for
+           the owner." (same headline treatment, two colors), then the top
+           floor and ground level plans -- cropped apart from slide-7 and
+           stacked, since the source has them side by side for desktop. --- */
+    .floorplans-mobile__top{ padding:60px var(--mobile-gutter) 44px; text-align:center; background:var(--ink); }
+    .floorplans-mobile__top .rule{ margin:24px auto; }
+    .floorplans-mobile__top .opp-mobile__eyebrow + .opp-mobile__eyebrow{ margin-top:30px; }
+    /* --- No divider here: the original mockup shows Top Floor and Ground
+           Level as one continuous linen-textured sheet with zero gap
+           between them, not two separate cards with a seam. The two crops
+           come from the same source photo, so their edge colors already
+           match almost exactly -- stacking them with nothing in between
+           reads as one uninterrupted sheet, matching that mockup. --- */
+    .floorplans-mobile__photo{ position:relative; background:var(--ink); line-height:0; overflow:hidden; }
+    .floorplans-mobile__photo img{ width:calc(100% + 4px); margin:0 -2px; height:auto; display:block; max-width:none; }
+    /* No fade/blur on the plan sheet's top/bottom edges -- tried both a
+       plain alpha-fade (read as a muddy gray-brown smear) and a
+       backdrop-filter blur (still read as an unwanted blurry edge on
+       mobile) and removed both. Clean hard edge: the photo just ends. --- */
+
+    /* --- MILESTONES: a from-scratch timeline (date/dot/label in three
+           columns, centered to match this mockup's layout), then the
+           site photo and closing note, reusing the shared
+           .milestone-photo__* classes (defined once, also reused -- at a
+           smaller size -- by the desktop ".milestones-overlay__caption"
+           earlier in this file). Desktop's own timeline lives in
+           ".milestones-overlay__timeline" with its own row/dot/date/label
+           classes; update both this block and that one if you change the
+           wording. --- */
+    .milestones-mobile__top{ padding:60px var(--mobile-gutter) 0; text-align:center; background:var(--ink); color:var(--on-dark); }
+    .milestones-mobile__top .rule{ margin:24px auto 0; }
+    .ms-mobile__timeline{
+      list-style:none; margin:36px 0 0; padding:0 8px; position:relative;
+    }
+    .ms-mobile__timeline::before{
+      content:''; position:absolute; left:50%; top:8px; bottom:8px; width:1px;
+      background:var(--line-on-dark); transform:translateX(-50%);
+    }
+    .ms-mobile__row{
+      display:grid; grid-template-columns:1fr 20px 1fr; align-items:center;
+      column-gap:14px; padding:16px 0; position:relative;
+    }
+    .ms-mobile__date{
+      font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--on-dark-soft);
+      text-align:right; line-height:1.3;
+    }
+    .ms-mobile__dot{
+      width:11px; height:11px; border-radius:50%; border:1px solid var(--gold);
+      background:var(--ink); justify-self:center; position:relative; z-index:1;
+    }
+    .ms-mobile__row.complete .ms-mobile__dot{ background:var(--gold); }
+    .ms-mobile__label{
+      font-family:'Jost',sans-serif; font-size:0.76rem; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--on-dark); text-align:left;
+    }
+    .milestones-mobile__photo{ margin-top:44px; line-height:0; }
+    .milestones-mobile__photo img{ width:100%; height:auto; display:block; }
+    .milestones-mobile__caption{ padding:36px var(--mobile-gutter) 56px; text-align:center; background:var(--ink); }
+    .milestones-mobile__caption .milestone-photo__title{ font-size:1.3rem; }
+
+    /* --- OWNERSHIP: reuses the dormant .ownership__lines/__final classes
+           already defined for this exact content elsewhere in this file.
+           Their font-size clamp(1.5rem,2.6vw,2.1rem) was written for a wide
+           desktop viewport, where 2.6vw drives the size -- at phone widths
+           2.6vw is tiny, so the clamp bottoms out at its 1.5rem floor
+           instead, which is too large for these short one-line phrases and
+           reads as loosely, oddly spaced. Set an explicit smaller size and
+           tighter line-height/margins here instead, matching the closer
+           spacing in the original mockup. --- */
+    .ownership-mobile__top{ padding:8px var(--mobile-gutter) 0; text-align:center; background:var(--ink); color:var(--on-dark); }
+    .ownership-mobile__top .rule{ margin:24px auto; }
+    /* Tighter line-height (1.55 -> 1.42) and one even 22px rhythm between
+       every block below -- the final line previously sat at margin-top:6px,
+       almost glued to the block above while every other gap was ~22-24px,
+       which read as unevenly spaced. */
+    .ownership-mobile__top .ownership__lines{
+      /* --on-dark, not --on-dark-soft -- on-dark-soft is a muted tan that
+         reads too close to gold-light at this size; --on-dark is the
+         brighter token, so it reads as white against the gold lines. */
+      margin-top:22px; font-size:var(--text-body-mobile); line-height:1.42; color:var(--on-dark);
+    }
+    .ownership-mobile__top .ownership__lines p{ margin:0 0 2px; }
+    .ownership-mobile__top .ownership__highlight{
+      /* Same size/line-height as the lines around it, plain white instead
+         of gold -- matches the desktop overlay's treatment, where
+         "Ownership" and the closing "freedom to stay" line are the only
+         two gold moments on this panel. */
+      margin:22px 0; font-size:var(--text-body-mobile); line-height:1.42; color:var(--on-dark);
+    }
+    .ownership-mobile__top .ownership__final{
+      margin-top:22px; padding-bottom:44px; font-size:var(--text-body-mobile); line-height:1.42;
+    }
+    .ownership-mobile__photo{ position:relative; line-height:0; }
+    .ownership-mobile__photo img{ width:100%; height:auto; display:block; }
+    .ownership-mobile__fade{
+      position:absolute; left:0; right:0; bottom:0; height:40%;
+      background:linear-gradient(180deg, rgba(var(--ink-rgb),0) 0%, rgba(var(--ink-rgb),0.75) 60%, var(--ink) 100%);
+      pointer-events:none;
+    }
+
+    /* --- CONTACT: the phone number was only ever baked, uneditable, into
+           the flattened slide image; as live text here it's simply not
+           included, matching the mockup (email only). --- */
+    .contact-mobile__photo img{ width:100%; height:auto; display:block; }
+    .contact-mobile__panel{
+      background:var(--ink); color:var(--on-dark); text-align:center;
+      padding:48px var(--mobile-gutter) 60px; display:flex; flex-direction:column; align-items:center;
+    }
+    .contact-mobile__quote-eyebrow{
+      /* Plain on-dark, not gold -- matches the desktop overlay treatment,
+         where the quote below is the one gold line here. */
+      font-family:'Cormorant Garamond',serif; font-weight:500; font-style:normal;
+      text-transform:uppercase; letter-spacing:0.06em; line-height:1.5;
+      font-size:0.95rem; color:var(--on-dark); margin:0; max-width:30ch;
+    }
+    .contact-mobile__quote{
+      font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400;
+      font-size:1.4rem; line-height:1.4; color:var(--gold-light); margin:22px 0 0;
+    }
+    .contact-mobile__divider-full{
+      height:1px; width:100%; background:var(--line-gold); margin:34px 0;
+    }
+    .contact-mobile__headshot{ width:96px; height:96px; border-radius:50%; object-fit:cover; margin-bottom:28px; }
+    .contact-mobile__panel .rule{ margin:24px auto; }
+    .contact-mobile__copy{
+      /* --on-dark, not --on-dark-soft -- same white-vs-gold fix as the rest
+         of the deck: this line sits right below the gold quote above it,
+         so it needs to read as clearly white rather than a dimmer near-
+         gold tan. */
+      font-family:'Cormorant Garamond',serif; font-size:1.1rem; line-height:1.7;
+      color:var(--on-dark); margin:0; max-width:32ch;
+    }
+    .contact-mobile__name{ font-family:'Cormorant Garamond',serif; font-size:var(--text-title-mobile); color:var(--on-dark); margin:30px 0 0; }
+    .contact-mobile__role{
+      font-family:'Jost',sans-serif; font-size:0.68rem; letter-spacing:0.14em;
+      text-transform:uppercase; color:var(--gold-dim); margin:6px 0 0;
+    }
+    .contact-mobile__detail{ font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--on-dark); margin:18px 0 0; }
+    .contact-mobile__detail a{ border-bottom:1px solid var(--line-on-dark); }
+  }
+</style>
+</head>
+<body>
+<!-- ============================================================
+     CONTENT MAP -- where to find and edit each of the 9 slides
+     ============================================================
+     Every slide is a <section class="deck-slide" id="...">. Search this
+     file for its id to jump straight to it. Each one has TWO copies of
+     its copy to keep in sync: a desktop version and a separate mobile
+     version (below 700px, CSS swaps to the "-mobile" markup and hides
+     the desktop one). Edit both if you change the wording.
+
+       id="opportunity"  Desktop: live text in ".opportunity-overlay"
+                          inside .slide-image-button. Mobile: ".opp-mobile".
+       id="hangars"      Desktop: live text in ".hangars-desktop", which
+                          also carries the hangar/blueprint/materials-
+                          swatches photos that used to be their own
+                          standalone "materials" slide (removed -- its only
+                          content now lives here). Mobile: ".hangars-mobile".
+       id="lakes"        Desktop: live text in ".lakes-overlay".
+                          Mobile: ".lakes-mobile".
+       id="masterplan"   Desktop: live layout in ".masterplan-desktop" -- a
+                          real var(--stage) panel (".masterplan-desktop__panel",
+                          holding the same ".masterplan-overlay__*" text
+                          classes) plus a live photo (".masterplan-desktop__photo",
+                          the same masterplan-diagram.jpg mobile uses, not the
+                          old baked slide-6.jpg). Mobile: ".masterplan-mobile".
+       id="floorplans"   Desktop: live text in ".floorplans-overlay" over a
+                          cleaned slide-7.jpg (the two floor plans on the
+                          right are still part of the image). Mobile:
+                          ".floorplans-mobile".
+       id="milestones"   Desktop: live text in ".milestones-overlay" over a
+                          cleaned slide-8.jpg (the site photo is still part
+                          of the image). Mobile: ".milestones-mobile".
+       id="ownership"    Desktop: live text in ".ownership-overlay".
+                          Mobile: ".ownership-mobile".
+       id="contact"      Desktop: live text in ".contact-overlay" (Chris's
+                          name/role/email live here). Mobile: ".contact-mobile"
+                          (same fields, separate markup -- update both).
+
+     Global brand settings (colors, fonts, spacing) live in the single
+     :root TOKENS block at the top of the stylesheet in <head> -- start
+     there for any site-wide look change.
+     ============================================================ -->
+<!-- ============================================================ NAV ============================================================ -->
+<nav class="nav" id="siteNav">
+  <a href="#top" class="nav__mark" aria-label="The Landing: KLCI">THE LANDING:<span>KLCI</span></a>
+  <ul class="nav__links">
+    <li><a href="#opportunity">The Landing</a></li>
+    <li><a href="#hangars">The Hangars</a></li>
+    <li><a href="#lakes">The Destination</a></li>
+    <li><a href="#contact">Inquire</a></li>
+  </ul>
+  <div class="nav__right">
+    <a href="#contact" class="btn nav__cta">Request Information</a>
+    <button class="nav__burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#opportunity">The Landing</a>
+  <a href="#hangars">The Hangars</a>
+  <a href="#lakes">The Destination</a>
+  <a href="#contact">Inquire</a>
+  <a href="#contact" class="btn">Request Information</a>
+</div>
+
+<!-- ============================================================ HERO ============================================================ -->
+<header class="hero" id="top">
+  <video class="hero__bg" id="heroBg" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg">
+        <!-- The poster attribute above is a guaranteed fallback frame (same
+             one desktop always used) in case the script below doesn't run
+             or the browser can't play any of the sources -- without it, a
+             failed/blocked video would show nothing at all instead of a
+             still image. The script only upgrades it to the smaller mobile
+             poster when that applies; it never leaves the hero posterless. -->
+        <!-- Phones get a separately-encoded, ~70% smaller file (480x270,
+             lower bitrate) so the hero loads fast on cellular. It's the
+             same footage as the desktop file below, just re-sized and
+             re-compressed for a small screen -- object-fit:cover on
+             .hero__bg fills the viewport with it either way. Browsers
+             pick the first <source> whose media query matches and whose
+             type they can decode, so the mobile pair must come first. -->
+        <source src="assets/video/hero-bg-mobile.webm" type="video/webm" media="(max-width:700px)">
+        <source src="assets/video/hero-bg-mobile.mp4" type="video/mp4" media="(max-width:700px)">
+        <source src="assets/video/hero-bg.webm" type="video/webm">
+        <source src="assets/video/hero-bg.mp4" type="video/mp4">
+      </video>
+      <script>
+        /* Set the poster to match, before the browser has a chance to
+           fetch one -- there's no responsive `poster` attribute, so this
+           picks the right still frame in JS instead of shipping both. */
+        document.getElementById('heroBg').poster =
+          window.matchMedia('(max-width:700px)').matches
+            ? 'assets/video/hero-poster-mobile.jpg'
+            : 'assets/video/hero-poster.jpg';
+      </script>
+  <div class="hero__scrim"></div>
+  <div class="hero__content">
+    <h1 class="hero__title display"><span class="hero__the u">THE</span>LANDING<em>at&nbsp;KLCI</em></h1>
+    <div class="hero__coords u">43.5730&deg; N&nbsp;&nbsp;|&nbsp;&nbsp;71.4178&deg; W</div>
+    <div class="hero__ctas">
+      <a href="#hangars" class="btn">Explore the Hangars</a>
+      <a href="#contact" class="btn filled">Request Information</a>
+    </div>
+  </div>
+  <div class="hero__scroll u">
+    <span>SCROLL</span>
+    <i></i>
+  </div>
+</header>
+<main class="deck" aria-label="The Landing Owner's Portfolio">
+<section class="deck-slide" id="opportunity" data-slide-index="0" aria-labelledby="slide-title-1">
+  <h2 class="slide-copy" id="slide-title-1">The Opportunity</h2>
+  <div class="slide-image-button">
+    <img class="slide-image" src="assets/images/slide-2.jpg" alt="The Landing opportunity statement beside a luxury private aircraft hangar rendering" loading="eager" decoding="async">
+    <div class="opportunity-overlay" aria-hidden="true">
+      <div class="opportunity-overlay__content">
+        <img class="opportunity-overlay__logo" src="assets/images/logomark.png" width="98" height="151" alt="">
+        <p class="opportunity-overlay__eyebrow">Some opportunities<br>come back around.</p>
+        <p class="opportunity-overlay__not">Not this one.</p>
+        <div class="rule center"></div>
+        <p class="opportunity-overlay__copy">Welcome to The Landing at KLCI — the <em>final</em> airport-adjacent opportunity available for private hangar development at Laconia Municipal Airport.</p>
+        <p class="opportunity-overlay__copy">Direct runway access. Full-service FBO support. A secure, gated environment built around a singular privilege: the freedom to arrive and depart completely on your own schedule.</p>
+      </div>
+    </div>
+  </div>
+  <p class="slide-copy">Some opportunities come back around. Not this one. Welcome to The Landing at KLCI — the final airport-adjacent opportunity available for private hangar development at Laconia Municipal Airport. Direct runway access. Full-service FBO support. A secure, gated environment built around the freedom to arrive and depart completely on your own schedule.</p>
+  <div class="opp-mobile">
+    <div class="opp-mobile__top">
+      <img class="opp-mobile__logo" src="assets/images/logomark.png" width="98" height="151" alt="" aria-hidden="true">
+      <p class="opp-mobile__eyebrow">Some opportunities<br>come back around.</p>
+      <p class="opp-mobile__not">Not this one.</p>
+      <div class="rule center"></div>
+      <p class="opp-mobile__copy">Welcome to The Landing at KLCI — the <em>final</em> airport-adjacent opportunity available for private hangar development at Laconia Municipal Airport.</p>
+    </div>
+    <div class="opp-mobile__photo">
+      <img src="assets/images/opportunity-photo.jpg" width="850" height="900" alt="Private aircraft hangar at dusk with a jet parked inside, at The Landing at KLCI" loading="lazy" decoding="async">
+    </div>
+    <ul class="opp-mobile__features">
+      <li>
+        <span class="opp-mobile__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L20 20 L4 20 Z"/><path d="M12 9 L12 20"/></svg>
+        </span>
+        <div>
+          <p class="opp-mobile__f-title">Direct Runway Access.</p>
+          <p class="opp-mobile__f-body">Taxi in. Close the door. You're home.</p>
+        </div>
+      </li>
+      <li>
+        <span class="opp-mobile__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 14.5 L21 12 L2.5 9.5 L2.5 12.5 Z"/><path d="M9 11.7 L9 5.5 L11.3 7 L11.7 11.2"/><path d="M9 12.6 L9 18.5 L11.3 17.2 L11.5 13"/></svg>
+        </span>
+        <div>
+          <p class="opp-mobile__f-title">Full-Service FBO Support.</p>
+          <p class="opp-mobile__f-body">Fuel, concierge, and aircraft services designed for seamless ownership.</p>
+        </div>
+      </li>
+      <li>
+        <span class="opp-mobile__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1.4"/><path d="M8 11 L8 7.5 A4 4 0 0 1 16 7.5 L16 11"/></svg>
+        </span>
+        <div>
+          <p class="opp-mobile__f-title">Secure. Gated. Private.</p>
+          <p class="opp-mobile__f-body">A protected environment where privacy is built in — not added on.</p>
+        </div>
+      </li>
+      <li>
+        <span class="opp-mobile__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.25"/><path d="M12 7.5 L12 12 L15.3 14"/></svg>
+        </span>
+        <div>
+          <p class="opp-mobile__f-title">Freedom On Your Schedule.</p>
+          <p class="opp-mobile__f-body">Arrive and depart entirely on your own time.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="deck-slide" id="hangars" data-slide-index="1" aria-labelledby="slide-title-2">
+  <h2 class="slide-copy" id="slide-title-2">Nine Hangars. One Vision.</h2>
+  <div class="slide-image-button">
+    <div class="hangars-desktop" aria-hidden="true">
+      <div class="hangars-desktop__row hangars-desktop__row--top">
+        <div class="hangars-desktop__cell hangars-desktop__head">
+          <p class="hangars-desktop__head-title">Nine Hangars.<br>One Vision.</p>
+          <div class="rule"></div>
+          <p class="hangars-desktop__head-sub">Only seven available<br>for private ownership.</p>
+        </div>
+        <div class="hangars-desktop__cell hangars-desktop__sunset">
+          <img src="assets/images/hangars-exterior-daylight.jpg" alt="Private hangar exterior in daylight with a jet parked inside, matching the hangar exterior shown on the Opportunity page" loading="eager" decoding="async">
+        </div>
+        <div class="hangars-desktop__cell hangars-desktop__lounge">
+          <img src="assets/images/hangars-photo-2.jpg" alt="Hangar owner's lounge interior with a leather chair and framed aircraft photograph" loading="eager" decoding="async">
+        </div>
+      </div>
+      <div class="hangars-desktop__row hangars-desktop__row--bottom">
+        <div class="hangars-desktop__cell hangars-desktop__swatches">
+          <img src="assets/images/materials-swatches.jpg" alt="Material sample swatches including bronze, stone, glass and wood finishes" loading="eager" decoding="async">
+        </div>
+        <div class="hangars-desktop__cell hangars-desktop__blueprint">
+          <img src="assets/images/materials-sketch.jpg" alt="Architectural sketch and floor plans for an 80 by 80 foot hangar unit" loading="eager" decoding="async">
+        </div>
+        <div class="hangars-desktop__cell hangars-desktop__grass">
+          <img src="assets/images/hangars-grass-field.jpg" alt="Grass meadow at sunset near the airport" loading="eager" decoding="async">
+        </div>
+        <!-- This panel's two columns are narrow (roughly 150-260px on
+             common desktop widths), so most of these two/three-word specs
+             can't fit on one line without crowding the type down to
+             illegible -- padding/gap/letter-spacing above are already
+             trimmed as far as they safely go to buy back real width. Two
+             targeted fixes instead of forcing every phrase onto one line
+             (which, tested, made the too-long ones overflow their column
+             and print over the neighboring one -- worse than wrapping):
+             "Glass-front" and "Three-quarter" use a non-breaking hyphen
+             (&#8209;) so the browser can't split THOSE compounds at the
+             hyphen the way it was ("GLASS-" / "FRONT MEZZANINE"), and every
+             other word boundary is left as a normal breakable space, so
+             when a phrase does have to wrap it always breaks at a clean
+             word boundary (e.g. "GLASS-FRONT" / "MEZZANINE", "VIEWRAIL" /
+             "STAIRCASE") rather than splitting a word or orphaning a single
+             trailing word on its own line. -->
+        <div class="hangars-desktop__cell hangars-desktop__specs-panel">
+          <div class="hangars-desktop__specs-col">
+            <p class="hangars-desktop__specs-title">80' x 80' – 6 Units</p>
+            <ul>
+              <li>79' x 25' hydraulic door</li>
+              <li>Glass&#8209;front mezzanine</li>
+              <li>Viewrail staircase</li>
+              <li>Expansive glazing</li>
+              <li>Private owner's lounge</li>
+              <li>Kitchenette</li>
+              <li>Three&#8209;quarter bath</li>
+            </ul>
+          </div>
+          <div class="hangars-desktop__specs-col">
+            <p class="hangars-desktop__specs-title">60' x 65' – 3 Units</p>
+            <ul>
+              <li>59' x 25' hydraulic door</li>
+              <li>Smaller footprint</li>
+              <li>Half bath</li>
+              <li>Locker area</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="slide-copy">Nine hangars. One vision. Only seven available for private ownership. Six 80 by 80 foot units with 79 by 25 foot hydraulic aircraft doors, glass-front mezzanine, Viewrail staircase, expansive glazing, private owner lounge, kitchenette and three-quarter bath. Three 60 by 65 foot units with 59 by 25 foot hydraulic aircraft doors, smaller footprint, half bath and locker area. In aviation, the sky is limitless, but the real estate is not.</p>
+  <div class="hangars-mobile">
+    <div class="hangars-mobile__top">
+      <p class="opp-mobile__eyebrow">Nine hangars.<br>One vision.</p>
+      <div class="rule center"></div>
+      <p class="mobile-sub-caps">Only seven available<br>for private ownership.</p>
+      <div class="hangars-mobile__spec">
+        <p class="hangars-mobile__spec-title">80' x 80' – 6 Units</p>
+        <p class="hangars-mobile__spec-body">79' x 25' hydraulic aircraft door. Glass-front mezzanine. Viewrail staircase. Expansive glazing. Private owner's lounge. Kitchenette. Three-quarter bath.</p>
+      </div>
+      <div class="rule center small"></div>
+      <div class="hangars-mobile__spec">
+        <p class="hangars-mobile__spec-title">60' x 65' – 3 Units</p>
+        <p class="hangars-mobile__spec-body">59' x 25' hydraulic aircraft door. Smaller footprint. Half bath. Locker area.</p>
+      </div>
+    </div>
+    <div class="hangars-mobile__photos">
+      <img src="assets/images/hangars-photo-1.jpg" width="766" height="1022" alt="Private hangar exterior in daylight with a jet parked inside" loading="lazy" decoding="async">
+      <img src="assets/images/materials-swatches.jpg" width="880" height="968" alt="Material sample swatches including bronze, stone, glass and wood finishes" loading="lazy" decoding="async">
+    </div>
+    <div class="hangars-mobile__blueprint">
+      <img src="assets/images/materials-sketch.jpg" width="925" height="991" alt="Architectural sketch and floor plans for an 80 by 80 foot hangar unit" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+<section class="deck-slide" id="lakes" data-slide-index="2" aria-labelledby="slide-title-4">
+  <h2 class="slide-copy" id="slide-title-4">The Lakes Region</h2>
+  <div class="slide-image-button">
+    <img class="slide-image" src="assets/images/slide-5.jpg" alt="The Lakes Region story beside a child jumping into Lake Winnipesaukee at sunset" loading="lazy" decoding="async">
+    <div class="lakes-overlay" aria-hidden="true">
+      <div class="lakes-overlay__content">
+        <p class="lakes-overlay__eyebrow">The Lakes Region</p>
+        <div class="rule"></div>
+        <div class="lakes-overlay__row">
+          <span class="lakes-overlay__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M2,10 Q8,4 16,10 T30,10"/><path d="M2,16 Q8,10 16,16 T30,16"/><path d="M2,22 Q8,16 16,22 T30,22"/></svg>
+          </span>
+          <span class="lakes-overlay__divider"></span>
+          <p class="lakes-overlay__text">Minutes from Lake Winnipesaukee<br>and the White Mountains,<br>The Landing puts one of<br>New England's great four-season<br>destinations within easy reach.</p>
+        </div>
+        <div class="lakes-overlay__hr"></div>
+        <div class="lakes-overlay__row">
+          <span class="lakes-overlay__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1,24 L11,8 L17,17 L21,12 L31,24 Z"/></svg>
+          </span>
+          <span class="lakes-overlay__divider"></span>
+          <p class="lakes-overlay__text">Lake days and mountain mornings.<br>Golf, skiing, concerts at Bank NH Pavilion —<br>and weekends that have a way<br>of running long.</p>
+        </div>
+        <div class="lakes-overlay__hr"></div>
+        <div class="lakes-overlay__row">
+          <span class="lakes-overlay__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16,3 L23,14 L19,14 L25,22 L19,22 L23,27 L9,27 L13,22 L7,22 L13,14 L9,14 Z"/><line x1="16" y1="27" x2="16" y2="31"/></svg>
+          </span>
+          <span class="lakes-overlay__divider"></span>
+          <p class="lakes-overlay__text">Because the childhood dream was<br>never about the airplane.</p>
+        </div>
+        <div class="lakes-overlay__final-row">
+          <span class="lakes-overlay__bracket"></span>
+          <p class="lakes-overlay__final">It was the freedom to fly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="slide-copy">Minutes from Lake Winnipesaukee and the White Mountains, The Landing puts one of New England's great four-season destinations within easy reach. Lake days and mountain mornings. Golf, skiing, concerts at Bank NH Pavilion — and weekends that have a way of running long. Because the childhood dream was never about the airplane. It was the freedom to fly.</p>
+  <div class="lakes-mobile">
+    <div class="lakes-mobile__top">
+      <p class="opp-mobile__eyebrow">The Lakes Region</p>
+      <div class="rule center"></div>
+      <p class="lakes-mobile__copy">Minutes from Lake Winnipesaukee and the White Mountains, The Landing puts one of New England's great four-season destinations within easy reach.</p>
+      <p class="lakes-mobile__copy">Lake days and mountain mornings. Golf, skiing, concerts at Bank NH Pavilion — and weekends that have a way of running long.</p>
+      <p class="lakes-mobile__copy">Because the childhood dream was never about the airplane.</p>
+      <p class="lakes-mobile__final">It was the freedom to fly.</p>
+    </div>
+    <div class="lakes-mobile__photo">
+      <img src="assets/images/lakes-photo.jpg" width="848" height="900" alt="Child jumping off a dock into Lake Winnipesaukee at sunset" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+<section class="deck-slide light-slide" id="masterplan" data-slide-index="3" aria-labelledby="slide-title-5">
+  <h2 class="slide-copy" id="slide-title-5">The Masterplan</h2>
+  <div class="slide-image-button">
+    <div class="masterplan-desktop" aria-hidden="true">
+      <div class="masterplan-desktop__panel">
+        <div class="masterplan-overlay__content">
+          <p class="masterplan-overlay__eyebrow">The Masterplan</p>
+          <div class="rule"></div>
+          <p class="masterplan-overlay__sub">Thoughtfully positioned.<br>Purposefully connected.</p>
+          <div class="masterplan-overlay__stat">
+            <p class="masterplan-overlay__num">9</p>
+            <p class="masterplan-overlay__label">Private Hangars</p>
+          </div>
+          <div class="masterplan-overlay__group">
+            <p class="masterplan-overlay__num small">1&ndash;6</p>
+            <p class="masterplan-overlay__label">80' x 80'</p>
+            <p class="masterplan-overlay__label">Doors 79' x 25'</p>
+          </div>
+          <div class="masterplan-overlay__hr"></div>
+          <div class="masterplan-overlay__group">
+            <p class="masterplan-overlay__num small">7&ndash;9</p>
+            <p class="masterplan-overlay__label">60' x 65'</p>
+            <p class="masterplan-overlay__label">Doors 59' x 25'</p>
+          </div>
+        </div>
+      </div>
+      <div class="masterplan-desktop__photo">
+        <img src="assets/images/masterplan-diagram.jpg" alt="Site plan diagram showing nine private hangars, automatic gate, airport beacon, existing stonewater pond and runway protection zone" loading="eager" decoding="async">
+      </div>
+    </div>
+  </div>
+  <p class="slide-copy">The Masterplan. Thoughtfully positioned. Purposefully connected. Nine private hangars. Units 1 through 6 are 80 by 80 feet with 79 by 25 foot doors. Units 7 through 9 are 60 by 65 feet with 59 by 25 foot doors.</p>
+  <div class="masterplan-mobile">
+    <div class="masterplan-mobile__top">
+      <p class="opp-mobile__eyebrow">The Masterplan</p>
+      <div class="rule center"></div>
+      <p class="mobile-sub-caps">Thoughtfully positioned.<br>Purposefully connected.</p>
+      <div class="masterplan-mobile__stat">
+        <p class="masterplan-mobile__num">9</p>
+        <p class="masterplan-mobile__label">Private Hangars</p>
+      </div>
+      <div class="masterplan-mobile__group">
+        <p class="masterplan-mobile__num small">1–6</p>
+        <p class="masterplan-mobile__label">80' x 80'</p>
+        <p class="masterplan-mobile__label">Doors 79' x 25'</p>
+      </div>
+      <div class="rule center small"></div>
+      <div class="masterplan-mobile__group">
+        <p class="masterplan-mobile__num small">7–9</p>
+        <p class="masterplan-mobile__label">60' x 65'</p>
+        <p class="masterplan-mobile__label">Doors 59' x 25'</p>
+      </div>
+    </div>
+    <div class="masterplan-mobile__photo">
+      <img src="assets/images/masterplan-diagram.jpg" width="900" height="790" alt="Masterplan site diagram showing nine private hangars, runway access and gated entry" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+<section class="deck-slide light-slide" id="floorplans" data-slide-index="4" aria-labelledby="slide-title-6">
+  <h2 class="slide-copy" id="slide-title-6">Designed for the Aircraft. Built for the Owner.</h2>
+  <div class="slide-image-button">
+    <img class="slide-image" src="assets/images/slide-7.jpg" alt="Top floor and ground-level plans for private luxury aircraft hangars" loading="lazy" decoding="async">
+    <div class="floorplans-overlay" aria-hidden="true">
+      <div class="floorplans-overlay__content">
+        <p class="floorplans-overlay__eyebrow">Designed for<br>the aircraft.</p>
+        <div class="rule"></div>
+        <p class="floorplans-overlay__eyebrow cream">Built for<br>the owner.</p>
+      </div>
+    </div>
+    <!-- Moved inside .slide-image-button (was a sibling of it, positioned
+         against .deck-slide) now that .deck-slide can be taller than the
+         16:9 photo box and letterbox around it -- this seam is a patch
+         over one exact pixel column of slide-7.jpg, so it has to be
+         positioned against that photo box itself, not the full slide. -->
+    <div class="seam-align seam-align--floorplans" aria-hidden="true"></div>
+  </div>
+  <p class="slide-copy">Designed for the aircraft. Built for the owner. Top floor and ground-level hangar plans.</p>
+  <div class="floorplans-mobile">
+    <div class="floorplans-mobile__top">
+      <p class="opp-mobile__eyebrow">Designed for<br>the aircraft.</p>
+      <div class="rule center"></div>
+      <p class="opp-mobile__eyebrow cream">Built for<br>the owner.</p>
+    </div>
+    <div class="floorplans-mobile__photo">
+      <img src="assets/images/floorplans-topfloor.jpg" width="600" height="528" alt="Top floor plan for the 80 by 80 foot hangar unit, scale 1/8 inch to 1 foot" loading="lazy" decoding="async">
+    </div>
+    <div class="floorplans-mobile__photo">
+      <img src="assets/images/floorplans-groundlevel.jpg" width="600" height="659" alt="Ground level plan for the 80 by 80 foot hangar unit with pilot lounge, utility and bathroom" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+<section class="deck-slide" id="milestones" data-slide-index="5" aria-labelledby="slide-title-7">
+  <h2 class="slide-copy" id="slide-title-7">Milestones</h2>
+  <div class="slide-image-button">
+    <img class="slide-image" src="assets/images/slide-8.jpg" alt="Development milestones and photograph of Doug Beane reviewing the site" loading="lazy" decoding="async">
+    <div class="milestones-overlay" aria-hidden="true">
+      <div class="milestones-overlay__timeline">
+        <p class="milestones-overlay__eyebrow">Milestones</p>
+        <div class="rule"></div>
+        <ul class="milestones-overlay__list">
+          <li class="milestones-overlay__row is-complete">
+            <span class="milestones-overlay__date">June<br>2026</span>
+            <span class="milestones-overlay__dot"></span>
+            <span class="milestones-overlay__label">Plans &amp; Permitting</span>
+          </li>
+          <li class="milestones-overlay__row is-complete">
+            <span class="milestones-overlay__date">August<br>2026</span>
+            <span class="milestones-overlay__dot"></span>
+            <span class="milestones-overlay__label">Approvals Complete</span>
+          </li>
+          <li class="milestones-overlay__row">
+            <span class="milestones-overlay__date">Fall<br>2026</span>
+            <span class="milestones-overlay__dot"></span>
+            <span class="milestones-overlay__label">Groundbreaking</span>
+          </li>
+          <li class="milestones-overlay__row">
+            <span class="milestones-overlay__date">Summer<br>2027</span>
+            <span class="milestones-overlay__dot"></span>
+            <span class="milestones-overlay__label">First Arrivals</span>
+          </li>
+        </ul>
+      </div>
+      <div class="milestones-overlay__caption">
+        <p class="milestone-photo__title">A Vision Takes Flight.</p>
+        <p class="milestone-photo__body">The airport approaches luxury builder Doug Beane. The need is clear: larger, premium private hangars.</p>
+        <p class="milestone-photo__note">*Photographed on site at KLCI</p>
+      </div>
+    </div>
+  </div>
+  <p class="slide-copy">Milestones. Plans and permitting in June 2026. Approvals complete in August 2026. Groundbreaking in fall 2026. First arrivals in summer 2027. A vision takes flight. The airport approaches luxury builder Doug Beane. The need is clear: larger, premium private hangars.</p>
+  <div class="milestones-mobile">
+    <div class="milestones-mobile__top">
+      <p class="opp-mobile__eyebrow">Milestones</p>
+      <div class="rule center"></div>
+      <ul class="ms-mobile__timeline">
+        <li class="ms-mobile__row complete">
+          <span class="ms-mobile__date">June<br>2026</span>
+          <span class="ms-mobile__dot"></span>
+          <span class="ms-mobile__label">Plans &amp; Permitting</span>
+        </li>
+        <li class="ms-mobile__row complete">
+          <span class="ms-mobile__date">August<br>2026</span>
+          <span class="ms-mobile__dot"></span>
+          <span class="ms-mobile__label">Approvals Complete</span>
+        </li>
+        <li class="ms-mobile__row">
+          <span class="ms-mobile__date">Fall<br>2026</span>
+          <span class="ms-mobile__dot"></span>
+          <span class="ms-mobile__label">Groundbreaking</span>
+        </li>
+        <li class="ms-mobile__row">
+          <span class="ms-mobile__date">Summer<br>2027</span>
+          <span class="ms-mobile__dot"></span>
+          <span class="ms-mobile__label">First Arrivals</span>
+        </li>
+      </ul>
+    </div>
+    <div class="milestones-mobile__photo">
+      <img src="assets/images/milestones-photo.jpg" width="625" height="521" alt="Doug Beane and a colleague reviewing the site in a field near the airport" loading="lazy" decoding="async">
+    </div>
+    <div class="milestones-mobile__caption">
+      <p class="milestone-photo__title">A Vision Takes Flight.</p>
+      <p class="milestone-photo__body">The airport approaches luxury builder Doug Beane. The need is clear: larger, premium private hangars.</p>
+      <p class="milestone-photo__note">*Photographed on site at KLCI</p>
+    </div>
+  </div>
+</section>
+<section class="deck-slide" id="ownership" data-slide-index="6" aria-labelledby="slide-title-8">
+  <h2 class="slide-copy" id="slide-title-8">Ownership</h2>
+  <div class="slide-image-button">
+    <img class="slide-image" src="assets/images/slide-9.jpg" alt="Ownership story beside a Lake Winnipesaukee sunset and dock" loading="lazy" decoding="async">
+    <div class="ownership-overlay" aria-hidden="true">
+      <div class="ownership-overlay__scrim"></div>
+      <div class="ownership-overlay__content">
+        <p class="ownership-overlay__eyebrow">Ownership</p>
+        <div class="rule"></div>
+        <div class="ownership-overlay__lines">
+          <p>One more log on the fire.</p>
+          <p>One more cast.</p>
+          <p>One more sunset over the lake.</p>
+        </div>
+        <p class="ownership-overlay__highlight">Time is the one luxury<br>you never get back.</p>
+        <div class="ownership-overlay__lines">
+          <p>Sometimes the greatest gift<br>is not having to leave. Not yet.</p>
+          <p>Because the airplane gets you there.</p>
+        </div>
+        <p class="ownership-overlay__final">Ownership gives you<br>the freedom to stay.</p>
+      </div>
+    </div>
+  </div>
+  <p class="slide-copy">Ownership. One more log on the fire. One more cast. One more sunset over the lake. Time is the one luxury you never get back. Sometimes the greatest gift is not having to leave. Not yet. Because the airplane gets you there. Ownership gives you the freedom to stay.</p>
+  <div class="ownership-mobile">
+    <div class="ownership-mobile__photo">
+      <img src="assets/images/ownership-photo.jpg" width="818" height="900" alt="Dock stretching into Lake Winnipesaukee at sunset" loading="lazy" decoding="async">
+      <div class="ownership-mobile__fade"></div>
+    </div>
+    <div class="ownership-mobile__top">
+      <p class="opp-mobile__eyebrow">Ownership</p>
+      <div class="rule center"></div>
+      <div class="ownership__lines">
+        <p>One more log on the fire.</p>
+        <p>One more cast.</p>
+        <p>One more sunset over the lake.</p>
+      </div>
+      <p class="ownership__highlight">Time is the one luxury<br>you never get back.</p>
+      <div class="ownership__lines">
+        <p>Sometimes the greatest gift<br>is not having to leave. Not yet.</p>
+        <p>Because the airplane gets you there.</p>
+      </div>
+      <p class="ownership__final">Ownership gives you<br>the freedom to stay.</p>
+    </div>
+  </div>
+</section>
+<section class="deck-slide light-slide" id="contact" data-slide-index="7" aria-labelledby="slide-title-9">
+  <h2 class="slide-copy" id="slide-title-9">Buyer Opportunities</h2>
+  <div class="slide-image-button">
+    <img class="slide-image" src="assets/images/slide-10.jpg" alt="Private jet engine and contact information for Chris Beane" loading="lazy" decoding="async">
+    <div class="contact-overlay" aria-hidden="true">
+      <div class="contact-overlay__panel-bg"></div>
+      <div class="contact-overlay__content">
+        <p class="contact-overlay__quote-eyebrow">In life, you will be remembered for a lot of things.</p>
+        <div class="rule"></div>
+        <p class="contact-overlay__quote">May &ldquo;practical&rdquo;<br>never be one of them.</p>
+        <div class="contact-overlay__divider-full"></div>
+        <p class="contact-overlay__eyebrow">Buyer Opportunities</p>
+        <!-- The inquiry form (Name/Email/Phone/Message + Send Inquiry) that
+             lived here was removed at the user's request after direct
+             feedback from the review team -- "people don't like it." Back
+             to the original, simpler design: this copy line leads straight
+             into Chris's card below, no fields. Matches the always-
+             unchanged .slide-copy fallback text a few lines down ("...please
+             contact Chris Beane... at chrisbeane@luxuryhangars.com"), which
+             is what this visible copy read before the form was added too. -->
+        <p class="contact-overlay__copy">For pricing details, private tours or future developments, please reach out to Chris Beane below:</p>
+        <div class="contact-overlay__person">
+          <img class="contact-overlay__headshot" src="assets/images/contact-headshot.jpg" width="64" height="64" alt="">
+          <div class="contact-overlay__person-divider"></div>
+          <div class="contact-overlay__person-text">
+            <p class="contact-overlay__name">Chris Beane</p>
+            <p class="contact-overlay__role">Head of Business Development</p>
+            <div class="contact-overlay__person-rule"></div>
+            <p class="contact-overlay__email"><a href="mailto:chrisbeane@luxuryhangars.com" tabindex="-1">chrisbeane@luxuryhangars.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="slide-copy">In life, you will be remembered for a lot of things. May "practical" never be one of them. Buyer Opportunities. For pricing details, private tours or future developments, please contact Chris Beane, Head of Business Development, at chrisbeane@luxuryhangars.com.</p>
+  <div class="contact-mobile">
+    <div class="contact-mobile__photo">
+      <img src="assets/images/contact-photo.jpg" width="807" height="900" alt="Detail of a private jet's engine and tail on the runway" loading="lazy" decoding="async">
+    </div>
+    <div class="contact-mobile__panel" id="contact-info">
+      <p class="contact-mobile__quote-eyebrow">In life, you will be remembered for a lot of things.</p>
+      <p class="contact-mobile__quote">May &ldquo;practical&rdquo;<br>never be one of them.</p>
+      <div class="contact-mobile__divider-full"></div>
+      <img class="contact-mobile__headshot" src="assets/images/contact-headshot.jpg" width="209" height="210" alt="Portrait of Chris Beane" loading="lazy" decoding="async">
+      <p class="opp-mobile__eyebrow">Buyer Opportunities</p>
+      <div class="rule center"></div>
+      <!-- Inquiry form removed here too (see the matching comment on the
+           desktop .contact-overlay__copy above) -- mobile shared the same
+           .contact-form markup/JS as desktop, both removed together. -->
+      <p class="contact-mobile__copy">For pricing details, private tours or future developments, please reach out to Chris Beane below:</p>
+      <p class="contact-mobile__name">Chris Beane</p>
+      <p class="contact-mobile__role">Head of Business Development</p>
+      <p class="contact-mobile__detail"><a href="mailto:chrisbeane@luxuryhangars.com">chrisbeane@luxuryhangars.com</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<div class="deck-ui" aria-label="Portfolio page navigation"><button class="deck-dot active" type="button" data-go-slide="0" aria-label="Go to slide 1: The Opportunity"></button>
+<button class="deck-dot" type="button" data-go-slide="1" aria-label="Go to slide 2: Nine Hangars. One Vision."></button>
+<button class="deck-dot" type="button" data-go-slide="2" aria-label="Go to slide 3: The Lakes Region"></button>
+<button class="deck-dot" type="button" data-go-slide="3" aria-label="Go to slide 4: The Masterplan"></button>
+<button class="deck-dot" type="button" data-go-slide="4" aria-label="Go to slide 5: Designed for the Aircraft. Built for the Owner."></button>
+<button class="deck-dot" type="button" data-go-slide="5" aria-label="Go to slide 6: Milestones"></button>
+<button class="deck-dot" type="button" data-go-slide="6" aria-label="Go to slide 7: Ownership"></button>
+<button class="deck-dot" type="button" data-go-slide="7" aria-label="Go to slide 8: Buyer Opportunities"></button></div>
+<div class="deck-counter" aria-live="polite"><span id="counterCurrent">01</span>&nbsp;/&nbsp;08</div>
+<div class="deck-instruction">Scroll to explore</div>
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-mark">THE LANDING <em style="font-style:italic;color:var(--on-dark-faint);">at KLCI</em></div>
+      <div class="footer-addr">Laconia Municipal Airport (KLCI)<br>Laconia, New Hampshire &middot; 43.5730&deg; N, 71.4178&deg; W</div>
+    </div>
+    <div class="footer-right">
+      <nav class="footer-links">
+        <a href="#opportunity">The Landing</a>
+        <a href="#hangars">The Hangars</a>
+        <a href="#lakes">The Destination</a>
+        <a href="#ownership">Ownership</a>
+        <a href="#contact">Inquire</a>
+      </nav>
+      <div class="footer-follow">
+        <span>Follow the build</span>
+        <!-- Instagram icon removed for now (no account live yet) -- the
+             markup above is preserved in this comment so it's a one-line
+             uncomment to bring back once there's a real link:
+        <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"></circle></svg>
+        </a>
+        -->
+        <a href="https://www.facebook.com/TheLandingatKLCI/" aria-label="Facebook" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8.5h2.2V5.3h-2.2c-2.1 0-3.6 1.5-3.6 3.7v1.9H8.8v3.2h2.1V21h3.2v-6.9h2.3l.4-3.2h-2.7V9.3c0-.6.3-.8.9-.8z"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 The Landing at KLCI. All rights reserved.</span>
+    <span>luxuryhangars.com</span>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav = document.getElementById('siteNav');
+  var hero = document.querySelector('.hero');
+  var heroVideo = document.getElementById('heroBg');
+  var burger = document.getElementById('burgerBtn');
+  var menu = document.getElementById('mobileMenu');
+  var opportunity = document.getElementById('opportunity');
+  var slides = Array.from(document.querySelectorAll('.deck-slide'));
+  var dots = Array.from(document.querySelectorAll('.deck-dot'));
+  var counterCurrent = document.getElementById('counterCurrent');
+  var activeIndex = 0;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var mobileMq = window.matchMedia('(max-width:700px)');
+
+  /* Every in-page "#id" link (nav, mobile menu, footer, hero CTAs, the logo)
+     used to rely on the page-wide CSS scroll-behavior:smooth for its
+     animated jump. That global smooth-scroll stays removed (see the html{}
+     rule's comment) even now that desktop scroll-snap is gone too, so both
+     scroll paths behave consistently: native wheel/trackpad scrolling goes
+     through the browser's own instant-per-event handling, and clicks on an
+     anchor link get their smooth animation here instead, via the same
+     scrollIntoView() approach already used for the nav dots and arrow-key
+     navigation. */
+  var contactInfoPanel = document.getElementById('contact-info');
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    var targetId = link.getAttribute('href').slice(1);
+    if(!targetId) return; // bare href="#" placeholder (social icons) -- ignore
+    link.addEventListener('click', function(e){
+      /* "Request Information" always points at #contact so desktop still
+         lands on the full Contact slide as one screen. On mobile, though,
+         that slide opens with the full-width plane photo before Chris's
+         actual contact panel -- someone tapping "Request Information"
+         wants his info, not the photo, so send that one click straight to
+         the panel instead of the section top. Desktop keeps following the
+         plain #contact anchor. */
+      if(targetId === 'contact' && mobileMq.matches && contactInfoPanel){
+        e.preventDefault();
+        contactInfoPanel.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block: 'start'});
+        return;
+      }
+      var target = document.getElementById(targetId);
+      if(!target) return;
+      e.preventDefault();
+      target.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block: 'start'});
+    });
+  });
+
+  function updateChrome(){
+    var h = hero.offsetHeight;
+    var y = window.scrollY;
+    document.body.classList.toggle('deck-entered', y > h * .72);
+    nav.classList.toggle('scrolled', y > h * .7);
+    /* restrained hero -> Opportunity handoff: hero copy recedes early and
+       gently as the user begins to leave it, rather than cutting abruptly
+       at the hero/Opportunity boundary. */
+    document.body.classList.toggle('leaving-hero', y > h * .1);
+    /* On mobile every slide now flows at its own (often multi-screen)
+       height instead of one-slide-one-screen, so the IntersectionObserver's
+       "55% of this slide is visible" rule below can't reliably tell which
+       page is current -- a scroll-position heuristic stands in for it here
+       instead: whichever slide currently occupies the most viewport space
+       is "current". (An earlier version guessed via a fixed look-ahead
+       past the viewport's top edge, which flipped the page counter/dot to
+       the NEXT slide's number while that next slide was barely on screen
+       and the previous one -- often a full-bleed image -- still filled
+       nearly the whole viewport. Measuring actual on-screen overlap tracks
+       what a person is actually looking at instead of guessing ahead.) */
+    if(mobileMq.matches){ setActive(currentSlideByScroll()); }
+  }
+  function currentSlideByScroll(){
+    /* Ratio is normalized against each slide's OWN height (capped at the
+       viewport height), not the raw viewport height, so a section shorter
+       than one screen -- e.g. Materials -- can still "win" by being fully
+       on screen, instead of always losing to taller neighbors on raw
+       pixel count. For any slide taller than the viewport (the normal
+       case) this is identical to plain viewport overlap, so it doesn't
+       change the already-verified behavior for those. */
+    var vh = window.innerHeight, bestIdx = 0, bestRatio = -1;
+    for (var i=0;i<slides.length;i++){
+      var r = slides[i].getBoundingClientRect();
+      var overlap = Math.min(r.bottom, vh) - Math.max(r.top, 0);
+      var denom = Math.min(r.height, vh) || 1;
+      var ratio = overlap / denom;
+      if (ratio > bestRatio) { bestRatio = ratio; bestIdx = i; }
+    }
+    return bestIdx;
+  }
+  document.addEventListener('scroll', updateChrome, {passive:true});
+  updateChrome();
+
+  /* A scroll-snap drift-correction safety net used to live here (desktop
+     only): CSS scroll-snap-type:mandatory + scroll-snap-stop:always is
+     supposed to guarantee every scroll gesture lands exactly on one slide,
+     and does reliably in Chrome, but on real Safari/Mac it was confirmed --
+     live, via screen share -- resting with two slides' content each half on
+     screen (seen at the Ownership/Contact boundary) even with this JS
+     watching for it. Rather than keep patching a native browser behavior
+     that can't be fully overridden from JS, scroll-snap itself was removed
+     from desktop entirely (see the DECK MECHANICS block, and .hero/
+     .deck-slide/footer, near the top of this stylesheet) -- desktop now
+     scrolls freely, same as mobile always did. This correction code is
+     removed along with it: with no CSS snap left to drift from, it would
+     instead force EVERY scroll gesture to jump to the nearest slide edge
+     the moment it ends, silently reintroducing snapping in JS. */
+
+  if(reduceMotion){
+    heroVideo.pause();heroVideo.removeAttribute('autoplay');
+  } else { heroVideo.play().catch(function(){}); }
+
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.classList.remove('open');document.body.style.overflow='';});});
+
+  function setActive(index){
+    activeIndex = index;
+    counterCurrent.textContent = String(index + 1).padStart(2,'0');
+    slides.forEach(function(s,i){
+      s.classList.toggle('is-current',i===index);
+      /* 'revealed' plays the artwork settle + the gold-headline mask once,
+         the first time a page is actually reached -- never again after. */
+      if(i===index) s.classList.add('revealed');
+    });
+    dots.forEach(function(d){d.classList.toggle('active', Number(d.dataset.goSlide)===index);});
+  }
+  var observer = new IntersectionObserver(function(entries){
+    /* Mobile already gets its active-slide answer from the scroll-based
+       overlap heuristic in updateChrome() above, which is the correct one
+       for mobile's flowing (often multi-screen-tall) sections. This
+       observer's ratio-based rule assumes one-slide-one-screen, which is
+       true on desktop but not mobile -- a short mobile section (e.g.
+       Materials) can hit 100% of ITS OWN area while a taller neighbor still
+       fills most of the actual viewport, so letting both heuristics drive
+       setActive() made the page counter flicker between the two while
+       scrolling past a short section. Desktop keeps this observer as its
+       only mechanism; mobile ignores it. */
+    if(mobileMq.matches) return;
+    entries.forEach(function(entry){if(entry.isIntersecting && entry.intersectionRatio >= .55){setActive(Number(entry.target.dataset.slideIndex));}});
+  },{threshold:[.55,.72]});
+  slides.forEach(function(slide){observer.observe(slide);});
+  dots.forEach(function(dot){dot.addEventListener('click',function(){slides[Number(dot.dataset.goSlide)].scrollIntoView({behavior:'smooth',block:'start'});});});
+  setActive(0);
+  if(reduceMotion && opportunity){ opportunity.classList.add('revealed'); }
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowDown' || e.key==='PageDown') {e.preventDefault();slides[Math.min(activeIndex+1,slides.length-1)].scrollIntoView({behavior:'smooth'});}
+    if(e.key==='ArrowUp' || e.key==='PageUp') {e.preventDefault();(activeIndex===0?hero:slides[activeIndex-1]).scrollIntoView({behavior:'smooth'});}
+  });
+
+  /* The inquiry form (Name/Email/Phone/Message, desktop + mobile shared
+     the same .contact-form markup) and its mailto-submit handler that used
+     to live here were both removed -- see the comment on
+     .contact-overlay__copy in the Contact section markup. Chris Beane's
+     card (name, role, email link) is the only contact affordance now,
+     same as before the form was ever added. */
+})();
+</script>
+</body>
+</html>
